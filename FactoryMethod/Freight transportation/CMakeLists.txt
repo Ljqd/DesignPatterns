@@ -15,7 +15,7 @@ add_executable (
     "Plane.h" "Plane.cpp"
     "Truck.h" "Truck.cpp"
     "Ship.h" "Ship.cpp"
-)
+ "SeaLogistics.cpp" "SeaLogistics.h" "RoadLogistics.cpp" "RoadLogistics.h" "AirLogistics.cpp" "AirLogistics.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET DesignPattern_FactoryMethod_FeightTransportation PROPERTY CXX_STANDARD 20)
