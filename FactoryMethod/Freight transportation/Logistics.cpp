@@ -1,7 +1,7 @@
 #include "Logistics.h"
 
 
-Logistics::Logistics() : deliveryTariff{-1}
+Logistics::Logistics() : deliveryTariff{0}
 {}
 
 Logistics::Logistics(float deliveryTariff) : deliveryTariff{ deliveryTariff }
