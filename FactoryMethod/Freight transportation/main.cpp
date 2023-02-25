@@ -5,7 +5,7 @@
 int main()
 {
     LogisticCompany logisticCompany = {};
-    logisticCompany.run();
+    logisticCompany.run(LogisticCompany::ROAD);
 
     return 0;
 }
