@@ -1,1 +1,0 @@
-This repo based on a "Design Patterns Elements of Reusable Object-Oriented Software" book, a course of lectures and practices of MMF 2023, [RefactorGuru](https://refactoring.guru/) and ChatGPT as a recommendation system of applied exercises.
