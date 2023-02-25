@@ -3,6 +3,6 @@
 
 float Ship::deliveryCost(int distance, int cargo)
 {
-    std::cout << "Hi, I'm a very specific ship! You cargo's on the way!" << std::endl;
+    std::cout << "Hi, I'm a very specific ship!" << std::endl;
     return distance * cargo * costTonnPerKm;
 }
