@@ -1,6 +1,11 @@
 #include <iostream>
 
+#include <memory>
+#include "TrafficSimulator.h"
+
 int main()
 {
-    std::cout << "I'm a traffic simulator!\n";
+    std::unique_ptr<TrafficSimulator> simulator = std::unique_ptr<TrafficSimulator>();
+    float cost = simulator->simulate();
+    std::cout << "I'm a traffic simulator!\tSo, the total cost is: " << cost;
 }
