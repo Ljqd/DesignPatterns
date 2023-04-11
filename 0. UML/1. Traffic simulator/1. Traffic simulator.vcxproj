@@ -129,6 +129,17 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AirLogistics.h" />
+    <ClInclude Include="Logistics.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="RoadLogistics.h" />
+    <ClInclude Include="SeaLogistics.h" />
+    <ClInclude Include="Ship.h" />
+    <ClInclude Include="TrafficSimulator.h" />
+    <ClInclude Include="Transport.h" />
+    <ClInclude Include="Truck.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
