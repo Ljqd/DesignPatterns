@@ -10,6 +10,6 @@ A logistics company (class **LogisticCompany**) is engaged in the transportation
 ---
 # Solution
 ## Class diagram
-![[docs/2.svg]]
+![Class diagram](./docs/2.svg)
 ## Sequence diagram
-![[docs/1.svg]]
+![Sequence diagram](./docs/1.svg)
