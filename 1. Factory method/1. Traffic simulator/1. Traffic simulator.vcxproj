@@ -130,18 +130,18 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AirLogistics.h" />
-    <ClInclude Include="Logistics.h" />
-    <ClInclude Include="Plane.h" />
-    <ClInclude Include="RoadLogistics.h" />
-    <ClInclude Include="SeaLogistics.h" />
-    <ClInclude Include="Ship.h" />
-    <ClInclude Include="TrafficSimulator.h" />
-    <ClInclude Include="Transport.h" />
-    <ClInclude Include="Truck.h" />
+    <None Include="puml\uml.puml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="puml\uml.puml" />
+    <ClInclude Include="src\AirLogistics.h" />
+    <ClInclude Include="src\Logistics.h" />
+    <ClInclude Include="src\Plane.h" />
+    <ClInclude Include="src\RoadLogistics.h" />
+    <ClInclude Include="src\SeaLogistics.h" />
+    <ClInclude Include="src\Ship.h" />
+    <ClInclude Include="src\TrafficSimulator.h" />
+    <ClInclude Include="src\Transport.h" />
+    <ClInclude Include="src\Truck.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

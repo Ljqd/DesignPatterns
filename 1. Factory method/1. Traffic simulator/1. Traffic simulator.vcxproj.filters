@@ -20,37 +20,37 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TrafficSimulator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Logistics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Truck.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Transport.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ship.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Plane.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AirLogistics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RoadLogistics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SeaLogistics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="puml\uml.puml">
       <Filter>Resource Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\AirLogistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Logistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Plane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RoadLogistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SeaLogistics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ship.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TrafficSimulator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Transport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Truck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
