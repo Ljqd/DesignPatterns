@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include <memory>
-#include "TrafficSimulator.h"
+#include "src/TrafficSimulator.h"
 
 int main()
 {
