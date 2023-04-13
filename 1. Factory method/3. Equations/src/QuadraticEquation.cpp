@@ -7,7 +7,7 @@ QuadraticEquation::QuadraticEquation(float a, float b, float c) : a{ a }, b{ b }
 }
 
 QuadraticEquation::QuadraticEquation(const std::vector<float>& coefficients) :
-    a{ coefficients[0] }, b{ coefficients[1] }, c{ coefficients[2] }
+    a{ coefficients[2] }, b{ coefficients[1] }, c{ coefficients[0] }
 {}
 
 std::vector<float> QuadraticEquation::solve()

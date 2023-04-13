@@ -7,7 +7,7 @@ LinearEquation::LinearEquation(float a, float b) : a{ a }, b{ b }
 }
 
 LinearEquation::LinearEquation(const std::vector<float>& coefficients) :
-    a{ coefficients[0] }, b{ coefficients[1] }
+    a{ coefficients[1] }, b{ coefficients[0] }
 {
 
 }
