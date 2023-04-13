@@ -32,5 +32,8 @@ public:
         std::cout << cappuccino->getName() << '\n';
         std::cout << espresso->getName() << '\n';
         std::cout << latte->getName() << '\n';
+
+        float totalPrice = americano->getPrice() + cappuccino->getPrice() + espresso->getPrice() + latte->getPrice();
+        std::cout << "Total profit (americano + cappuccino + espresso + latte): " << totalPrice << std::endl;
     }
 };
