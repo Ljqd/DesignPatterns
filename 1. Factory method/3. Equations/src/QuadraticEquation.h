@@ -11,7 +11,7 @@ public:
     QuadraticEquation(float a, float b, float c);
     QuadraticEquation(const std::vector<float>& coefficients);
 
-    BaseEquation::ComplexSolutions solve() override;
+    std::vector<float> solve() override;
     std::string getEquationAsString() const override;
 
 private:

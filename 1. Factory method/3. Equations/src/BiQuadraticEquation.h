@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <algorithm>
 
 #include "BaseEquation.h"
 #include "QuadraticEquation.h"
@@ -12,7 +13,7 @@ public:
     BiQuadraticEquation(float a, float b, float c);
     BiQuadraticEquation(const std::vector<float>& coefficients);
 
-    BaseEquation::ComplexSolutions solve() override;
+    std::vector<float> solve() override;
     std::string getEquationAsString() const override;
 
 private:

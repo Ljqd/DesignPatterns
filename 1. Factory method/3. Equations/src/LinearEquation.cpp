@@ -12,9 +12,13 @@ LinearEquation::LinearEquation(const std::vector<float>& coefficients) :
 
 }
 
-BaseEquation::ComplexSolutions LinearEquation::solve()
+std::vector<float> LinearEquation::solve()
 {
-    BaseEquation::ComplexSolutions result = { { -b / a, 0 } };
+    std::vector<float> result;
+    if (a == 0)
+        result = {};
+    else
+        result = { - b / a };
     return result;
 }
 

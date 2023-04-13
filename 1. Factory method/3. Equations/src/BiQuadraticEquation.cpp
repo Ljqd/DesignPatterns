@@ -11,15 +11,28 @@ BiQuadraticEquation::BiQuadraticEquation(const std::vector<float>& coefficients)
     a{ coefficients[0] }, b{ coefficients[1] }, c{ coefficients[2] }
 {}
 
-BaseEquation::ComplexSolutions BiQuadraticEquation::solve()
+std::vector<float> BiQuadraticEquation::solve()
 {
-    // t = x^2
+    // replace t = x^2 and solve
     QuadraticEquation temp = { a, b, c };
-    ComplexSolutions solutions1 = temp.solve();
-    ComplexSolutions solutions2 = { -1.0f * solutions1[0], -1.0f * solutions1[1]};
+    std::vector<float> solutions1 = temp.solve();
+    
+    // check non-emptiness
+    if (solutions1.size() == 0)
+        return solutions1;
 
-    // don't check unique solutions
-    solutions1.insert(std::end(solutions1), std::begin(solutions2), std::end(solutions2));
+    if (solutions1.size() == 1)
+    {
+        solutions1.push_back(-1.0f * solutions1[0]);
+        return solutions1;
+    }
+
+    std::vector<float> solutions2 = { -1.0f * solutions1[0], -1.0f * solutions1[1]};
+    // check unique solutions: t^2 = {-1, 1} -> x = {-1, 1, 1, -1};
+    if (std::find(solutions1.begin(), solutions1.end(), solutions2[0]) != solutions1.end())
+        solutions1.push_back(solutions2[0]);
+    if (std::find(solutions1.begin(), solutions1.end(), solutions2[1]) != solutions1.end())
+        solutions1.push_back(solutions2[1]);
 
     return solutions1;
 }

@@ -11,7 +11,7 @@ public:
     LinearEquation(float a, float b);
     LinearEquation(const std::vector<float>& coefficients);
 
-    BaseEquation::ComplexSolutions solve() override;
+    std::vector<float> solve() override;
     std::string getEquationAsString() const override;
 
 private:

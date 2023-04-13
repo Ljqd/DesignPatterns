@@ -10,14 +10,22 @@ QuadraticEquation::QuadraticEquation(const std::vector<float>& coefficients) :
     a{ coefficients[0] }, b{ coefficients[1] }, c{ coefficients[2] }
 {}
 
-BaseEquation::ComplexSolutions QuadraticEquation::solve()
+std::vector<float> QuadraticEquation::solve()
 {
     float D = pow(b, 2) - 4 * a * c;
 
-    std::complex<float> x1 = (-b + sqrt(D)) / (2 * a);
-    std::complex<float> x2 = (-b - sqrt(D)) / (2 * a);
+    std::vector<float> solutions;
+    
+    if (D < 0)
+    {
+        solutions = {};
+        return solutions;
+    }
 
-    ComplexSolutions solutions = { x1, x2 };
+    float x1 = (-b + sqrt(D)) / (2 * a);
+    float x2 = (-b - sqrt(D)) / (2 * a);
+
+    solutions = { x1, x2 };
 
     return solutions;
 }
