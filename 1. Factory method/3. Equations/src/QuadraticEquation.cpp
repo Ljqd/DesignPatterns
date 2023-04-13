@@ -22,6 +22,12 @@ std::vector<float> QuadraticEquation::solve()
         return solutions;
     }
 
+    if (D == 0)
+    {
+        solutions = { -b / (2 * a) };
+        return solutions;
+    }
+
     float x1 = (-b + sqrt(D)) / (2 * a);
     float x2 = (-b - sqrt(D)) / (2 * a);
 
