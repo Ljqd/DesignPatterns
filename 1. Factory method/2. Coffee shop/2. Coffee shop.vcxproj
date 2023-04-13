@@ -18,6 +18,31 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Americano.cpp" />
+    <ClCompile Include="src\AmericanoMachine.cpp" />
+    <ClCompile Include="src\Cappuccino.cpp" />
+    <ClCompile Include="src\CappuccinoMachine.cpp" />
+    <ClCompile Include="src\Coffee.cpp" />
+    <ClCompile Include="src\Espresso.cpp" />
+    <ClCompile Include="src\EspressoMachine.cpp" />
+    <ClCompile Include="src\Latte.cpp" />
+    <ClCompile Include="src\LatteMachine.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Americano.h" />
+    <ClInclude Include="src\AmericanoMachine.h" />
+    <ClInclude Include="src\Cappuccino.h" />
+    <ClInclude Include="src\CappuccinoMachine.h" />
+    <ClInclude Include="src\CoffeeMachine.h" />
+    <ClInclude Include="src\Coffee.h" />
+    <ClInclude Include="src\CoffeeShop.h" />
+    <ClInclude Include="src\Espresso.h" />
+    <ClInclude Include="src\EspressoMachine.h" />
+    <ClInclude Include="src\Latte.h" />
+    <ClInclude Include="src\LatteMachine.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,9 +151,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="2. Coffee shop.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
