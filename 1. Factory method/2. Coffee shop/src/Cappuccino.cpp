@@ -8,7 +8,7 @@ Cappuccino::Cappuccino(float componentsCost, float cost)
         throw("Cappuccino constructor: price <= 0");
 
     this->componentsCost = componentsCost;
-    this->price = price;
+    this->price = cost;
 }
 
 std::string Cappuccino::getName() const

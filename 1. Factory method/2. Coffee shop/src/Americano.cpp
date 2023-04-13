@@ -8,7 +8,7 @@ Americano::Americano(float componentsCost, float cost)
         throw("Americano constructor: price <= 0");
 
     this->componentsCost = componentsCost;
-    this->price = price;
+    this->price = cost;
 }
 
 std::string Americano::getName() const

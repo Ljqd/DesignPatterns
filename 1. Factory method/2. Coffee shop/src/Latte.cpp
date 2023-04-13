@@ -8,7 +8,7 @@ Latte::Latte(float componentsCost, float cost)
         throw("Latte constructor: price <= 0");
 
     this->componentsCost = componentsCost;
-    this->price = price;
+    this->price = cost;
 }
 
 std::string Latte::getName() const

@@ -8,7 +8,7 @@ Espresso::Espresso(float componentsCost, float cost)
         throw("Espresso constructor: price <= 0");
 
     this->componentsCost = componentsCost;
-    this->price = price;
+    this->price = cost;
 }
 
 std::string Espresso::getName() const
