@@ -12,7 +12,7 @@ diagrams:
       namespaces:
         - std
   sequen:
-    type: seq
+    type: sequence
     glob:
       - ./*.cpp
       - ./*.h
