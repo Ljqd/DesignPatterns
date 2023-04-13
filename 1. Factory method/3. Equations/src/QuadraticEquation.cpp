@@ -31,7 +31,10 @@ std::vector<float> QuadraticEquation::solve()
     float x1 = (-b + sqrt(D)) / (2 * a);
     float x2 = (-b - sqrt(D)) / (2 * a);
 
-    solutions = { x1, x2 };
+    if (x1 > x2)
+        solutions = { x2, x1 };
+    else
+        solutions = { x1, x2 };
 
     return solutions;
 }
