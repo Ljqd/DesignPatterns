@@ -42,6 +42,6 @@ Solve the problem for each set of input data. The input data is contained in the
 ---
 # Solution
 ## Class diagram
-![Class diagram](./docs/2.svg)
+![Class diagram](./docs/1.svg)
 ## Sequence diagram
-![Sequence diagram](./docs/1.svg)
+![Sequence diagram](./docs/2.svg)
