@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <unordered_set>
 
 #include "BaseEquation.h"
 #include "QuadraticEquation.h"
@@ -17,5 +18,8 @@ public:
     std::string getEquationAsString() const override;
 
 private:
+    std::vector<float> processSingleSolution(std::vector<float>& solutions);
+    std::vector<float> processMultipleSolution(std::vector<float>& solutions);
+
     float a, b, c;
 };
