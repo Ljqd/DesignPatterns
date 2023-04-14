@@ -2,12 +2,12 @@
 
 #include <iostream>
 #include <memory>
+#include <vector>
 
-#include "CoffeeCreator.h"
-#include "AmericanoCreator.h"
-#include "CappuccinoCreator.h"
-#include "EspressoCreator.h"
-#include "LatteCreator.h"
+#include "CoffeeMachine.h"
+#include "CoffeeMachineKeurig.h"
+#include "CoffeeMachineMelitta.h"
+#include "CoffeeMachineNestle.h"
 
 
 class CoffeeShop
@@ -15,25 +15,41 @@ class CoffeeShop
 public:
     void start()
     {
-        float baseComponentsCost = 10;
-        float basePrice = 15;
-
-        std::unique_ptr<CoffeeCreator> americanoCreator = std::make_unique<AmericanoCreator>(baseComponentsCost, basePrice);
-        std::unique_ptr<CoffeeCreator> cappuccinoCreator = std::make_unique<CappuccinoCreator>(baseComponentsCost + 3, basePrice + 3);
-        std::unique_ptr<CoffeeCreator> espressoCreator = std::make_unique<EspressoCreator>(baseComponentsCost + 7, basePrice + 7);
-        std::unique_ptr<CoffeeCreator> latteCreator = std::make_unique<LatteCreator>(baseComponentsCost + 11, basePrice + 11);
-
-        std::unique_ptr<Coffee> americano = americanoCreator->getCoffee();
-        std::unique_ptr<Coffee> cappuccino = cappuccinoCreator->getCoffee();
-        std::unique_ptr<Coffee> espresso = espressoCreator->getCoffee();
-        std::unique_ptr<Coffee> latte = latteCreator->getCoffee();
-
-        std::cout << americano->getName() << '\n';
-        std::cout << cappuccino->getName() << '\n';
-        std::cout << espresso->getName() << '\n';
-        std::cout << latte->getName() << '\n';
-
-        float totalPrice = americano->getPrice() + cappuccino->getPrice() + espresso->getPrice() + latte->getPrice();
-        std::cout << "Total profit (americano + cappuccino + espresso + latte): " << totalPrice << std::endl;
+        std::cout << "CoffeeMachineKeurig.";
+        process_machine<CoffeeMachineKeurig>(1, 1);
+        std::cout << "CoffeeMachineMelitta.";
+        process_machine<CoffeeMachineMelitta>(2, 2);
+        std::cout << "CoffeeMachineNestle.";
+        process_machine<CoffeeMachineNestle>(3, 3);
     }
+
+private:
+    template<typename machineType>
+    void process_machine(float a, float b);
 };
+
+template<typename machineType>
+void CoffeeShop::process_machine(float a, float b)
+{
+    float baseComponentsCost = 10;
+    float basePrice = 15;
+
+    std::pair<float, float> americanoCost = { basePrice, baseComponentsCost };
+    std::pair<float, float> cappuccinoCost = { a * basePrice, b * baseComponentsCost };
+    std::pair<float, float> espressoCost = { 2 * a * basePrice, 2 * b * baseComponentsCost };
+    std::pair<float, float> latteCost = { 3 * a * basePrice, 3 * b * baseComponentsCost };
+
+    std::unique_ptr<CoffeeMachine> machine = std::make_unique<machineType>(americanoCost, cappuccinoCost, espressoCost, latteCost);
+
+    std::unique_ptr<Coffee> americano = machine->getAmericano();
+    std::unique_ptr<Coffee> cappuccino = machine->getCappuccino();
+    std::unique_ptr<Coffee> espresso = machine->getEspresso();
+    std::unique_ptr<Coffee> latte = machine->getLatte();
+
+    float t1 = americano->getPrice() - americano->getComponentsCost();
+    float t2 = cappuccino->getPrice() - cappuccino->getComponentsCost();
+    float t3 = espresso->getPrice() - espresso->getComponentsCost();
+    float t4 = latte->getPrice() - latte->getComponentsCost();
+    float totalPrice = t1 + t2 + t3 + t4;
+    std::cout << "\tTotal profit (americano + cappuccino + espresso + latte): " << totalPrice << std::endl;
+}
