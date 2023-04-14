@@ -13,11 +13,17 @@ void Workspace::test_file(const std::string& path)
     try {
         FileReader reader(path);
 
+        std::cout << "Path: " << path << '\n';
+
         while (!reader.isEoF()) {
             std::string line = reader.next();
             std::vector<float> coefficients = getCoefficients(line);
             std::unique_ptr<BaseEquation> equation = getEquation(coefficients);
             std::vector<float> solutions = equation->solve();
+
+            std::cout << equation->getEquationAsString() << ": ";
+            for (const auto& solution : solutions) std::cout << solution << " ";
+            std::cout << '\n';
         }
     }
     catch (const std::runtime_error& e) {

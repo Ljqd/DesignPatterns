@@ -1,7 +1,7 @@
 #pragma once
 
-#include <iostream> // cout
-#include <vector> // vector<float>
+#include <iostream>
+#include <vector>
 #include <string> 
 #include <sstream> // "1 2 3" line -> {1, 2, 3} vector
 #include <memory> // unique_ptr
