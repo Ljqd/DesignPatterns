@@ -4,6 +4,7 @@
 #include <string>
 
 #include "BaseEquation.h"
+#include "LinearEquation.h"
 
 class QuadraticEquation : public BaseEquation
 {

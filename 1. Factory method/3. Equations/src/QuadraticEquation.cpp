@@ -12,6 +12,9 @@ QuadraticEquation::QuadraticEquation(const std::vector<float>& coefficients) :
 
 std::vector<float> QuadraticEquation::solve()
 {
+    if (a == 0)
+        return LinearEquation(b, c).solve();
+
     float D = pow(b, 2) - 4 * a * c;
 
     std::vector<float> solutions;
