@@ -15,28 +15,18 @@ std::vector<float> BiQuadraticEquation::solve()
 {
     // replace t = x^2 and solve
     QuadraticEquation temp = { a, b, c };
-    std::vector<float> solutions1 = temp.solve();
+    std::vector<float> solutions = temp.solve();
     
     // check non-emptiness
-    if (solutions1.size() == 0)
-        return solutions1;
+    if (solutions.size() == 0)
+        return solutions;
 
-    if (solutions1.size() == 1)
+    if (solutions.size() == 1)
     {
-        return processSingleSolution(solutions1);
+        return processSingleSolution(solutions);
     }
 
-    solutions1[0] = sqrt(solutions1[0]);
-    solutions1[1] = sqrt(solutions1[1]);
-
-    std::vector<float> solutions2 = { -1.0f * solutions1[0], -1.0f * solutions1[1]};
-    // check unique solutions: t^2 = {-1, 1} -> x = {-1, 1, 1, -1};
-    if (std::find(solutions1.begin(), solutions1.end(), solutions2[0]) == solutions1.end())
-        solutions1.push_back(solutions2[0]);
-    if (std::find(solutions1.begin(), solutions1.end(), solutions2[1]) == solutions1.end())
-        solutions1.push_back(solutions2[1]);
-
-    return solutions1;
+    return processMultipleSolution(solutions);
 }
 
 std::string BiQuadraticEquation::getEquationAsString() const
@@ -46,8 +36,10 @@ std::string BiQuadraticEquation::getEquationAsString() const
 
 std::vector<float> BiQuadraticEquation::processSingleSolution(std::vector<float>& solutions)
 {
-    if (solutions[0] <= 0)
+    if (solutions[0] < 0)
         return std::vector<float>{};
+    if (solutions[0] == 0)
+        return std::vector<float>{ 0.0 };
 
     float solution1 = sqrt(solutions[0]);
     float solution2 = -sqrt(solutions[0]);
@@ -64,15 +56,15 @@ std::vector<float> BiQuadraticEquation::processMultipleSolution(std::vector<floa
     std::vector<float> solutions1 = processSingleSolution(temp1);
     std::vector<float> solutions2 = processSingleSolution(temp2);
 
-    solutions1.insert(solutions1.begin(), solutions1.end(), solutions1.begin());
+    solutions1.insert(solutions1.end(), solutions2.begin(), solutions2.begin());
 
-    std::unordered_set<int> unique_set;
+    std::unordered_set<float> uniqueSet = {};
     for (const auto& elem : solutions1)
-        unique_set.insert(elem);
+        uniqueSet.insert(elem);
     for (const auto& elem : solutions2)
-        unique_set.insert(elem);
+        uniqueSet.insert(elem);
 
-    std::vector<float> result(unique_set.begin(), unique_set.end());
+    std::vector<float> result(uniqueSet.begin(), uniqueSet.end());
 
     std::sort(result.begin(), result.end());
     return result;
