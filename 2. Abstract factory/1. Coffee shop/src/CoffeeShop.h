@@ -3,11 +3,11 @@
 #include <iostream>
 #include <memory>
 
-#include "CoffeeMachine.h"
-#include "AmericanoMachine.h"
-#include "CappuccinoMachine.h"
-#include "EspressoMachine.h"
-#include "LatteMachine.h"
+#include "CoffeeCreator.h"
+#include "AmericanoCreator.h"
+#include "CappuccinoCreator.h"
+#include "EspressoCreator.h"
+#include "LatteCreator.h"
 
 
 class CoffeeShop
@@ -18,15 +18,15 @@ public:
         float baseComponentsCost = 10;
         float basePrice = 15;
 
-        std::unique_ptr<CoffeeMachine> americanoMachine = std::make_unique<AmericanoMachine>(baseComponentsCost, basePrice);
-        std::unique_ptr<CoffeeMachine> cappuccinoMachine = std::make_unique<CappuccinoMachine>(baseComponentsCost + 3, basePrice + 3);
-        std::unique_ptr<CoffeeMachine> espressoMachine = std::make_unique<EspressoMachine>(baseComponentsCost + 7, basePrice + 7);
-        std::unique_ptr<CoffeeMachine> latteMachine = std::make_unique<LatteMachine>(baseComponentsCost + 11, basePrice + 11);
+        std::unique_ptr<CoffeeCreator> americanoCreator = std::make_unique<AmericanoCreator>(baseComponentsCost, basePrice);
+        std::unique_ptr<CoffeeCreator> cappuccinoCreator = std::make_unique<CappuccinoCreator>(baseComponentsCost + 3, basePrice + 3);
+        std::unique_ptr<CoffeeCreator> espressoCreator = std::make_unique<EspressoCreator>(baseComponentsCost + 7, basePrice + 7);
+        std::unique_ptr<CoffeeCreator> latteCreator = std::make_unique<LatteCreator>(baseComponentsCost + 11, basePrice + 11);
 
-        std::unique_ptr<Coffee> americano = americanoMachine->getCoffee();
-        std::unique_ptr<Coffee> cappuccino = cappuccinoMachine->getCoffee();
-        std::unique_ptr<Coffee> espresso = espressoMachine->getCoffee();
-        std::unique_ptr<Coffee> latte = latteMachine->getCoffee();
+        std::unique_ptr<Coffee> americano = americanoCreator->getCoffee();
+        std::unique_ptr<Coffee> cappuccino = cappuccinoCreator->getCoffee();
+        std::unique_ptr<Coffee> espresso = espressoCreator->getCoffee();
+        std::unique_ptr<Coffee> latte = latteCreator->getCoffee();
 
         std::cout << americano->getName() << '\n';
         std::cout << cappuccino->getName() << '\n';

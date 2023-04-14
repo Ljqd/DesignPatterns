@@ -5,7 +5,7 @@
 #include "Coffee.h"
 
 
-class CoffeeMachine
+class CoffeeCreator
 {
 public:
     virtual std::unique_ptr<Coffee> getCoffee() = 0;
