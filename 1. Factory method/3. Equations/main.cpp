@@ -5,5 +5,8 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Workspace workspace = {};
+
+    workspace.test_manually();
+    workspace.test_file("nothing");
 }
