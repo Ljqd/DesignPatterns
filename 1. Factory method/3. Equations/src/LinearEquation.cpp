@@ -24,7 +24,12 @@ std::vector<float> LinearEquation::solve()
 
 std::string LinearEquation::getEquationAsString() const
 {
-    return std::to_string(a) + "x + " + std::to_string(b) + " = 0";
+    std::string as = std::to_string(a);
+    as.erase(as.find_first_of('.') + 3, std::string::npos);
+    std::string bs = std::to_string(b);
+    bs.erase(bs.find_first_of('.') + 3, std::string::npos);
+
+    return as + "x + " + bs + " = 0";
 }
 
 size_t LinearEquation::degree() const

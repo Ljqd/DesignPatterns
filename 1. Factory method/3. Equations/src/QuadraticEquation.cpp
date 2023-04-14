@@ -41,7 +41,14 @@ std::vector<float> QuadraticEquation::solve()
 
 std::string QuadraticEquation::getEquationAsString() const
 {
-    return std::to_string(a) + "x^2 + " + std::to_string(b) + "x + " + std::to_string(c) + " = 0";
+    std::string as = std::to_string(a);
+    as.erase(as.find_first_of('.') + 3, std::string::npos);
+    std::string bs = std::to_string(b);
+    bs.erase(bs.find_first_of('.') + 3, std::string::npos);
+    std::string cs = std::to_string(c);
+    cs.erase(cs.find_first_of('.') + 3, std::string::npos);
+
+    return as + "x^2 + " + bs + "x + " + cs + " = 0";
 }
 
 size_t QuadraticEquation::degree() const
