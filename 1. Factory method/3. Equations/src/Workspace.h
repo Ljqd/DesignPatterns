@@ -10,6 +10,7 @@
 
 #include "BaseEquation.h"
 #include "FileReader.h"
+#include "FileWriter.h"
 #include "LinearEquationCreator.h"
 #include "QuadraticEquationCreator.h"
 #include "BiQuadraticEquationCreator.h"

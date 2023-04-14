@@ -12,6 +12,7 @@ void Workspace::test_file(const std::string& path)
 {
     try {
         FileReader reader(path);
+        FileWriter writer = {};
 
         std::cout << "Path: " << path << '\n';
 
@@ -21,9 +22,18 @@ void Workspace::test_file(const std::string& path)
             std::unique_ptr<BaseEquation> equation = getEquation(coefficients);
             std::vector<float> solutions = equation->solve();
 
-            std::cout << equation->getEquationAsString() << ": ";
-            for (const auto& solution : solutions) std::cout << solution << " ";
-            std::cout << '\n';
+            if (solutions.size() == 0)
+                writer.addEmpty(equation->getEquationAsString());
+            else if (solutions.size() == 2)
+                writer.addTwo(equation->getEquationAsString(), solutions);
+            else if (solutions.size() == 3)
+                writer.addThree(equation->getEquationAsString(), solutions);
+            else if (solutions.size() == 4)
+                writer.addFour(equation->getEquationAsString(), solutions);
+            else if (solutions[0] != INFINITY)
+                writer.addOne(equation->getEquationAsString(), solutions);
+            else
+                writer.addInf(equation->getEquationAsString(), solutions);
         }
     }
     catch (const std::runtime_error& e) {
