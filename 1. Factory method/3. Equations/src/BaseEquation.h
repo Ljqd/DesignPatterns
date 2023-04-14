@@ -10,4 +10,5 @@ class BaseEquation
 public:
     virtual std::vector<float> solve() = 0;
     virtual std::string getEquationAsString() const = 0;
+    virtual size_t degree() const = 0;
 };

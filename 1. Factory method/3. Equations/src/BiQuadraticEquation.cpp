@@ -69,3 +69,10 @@ std::vector<float> BiQuadraticEquation::processMultipleSolution(std::vector<floa
     std::sort(result.begin(), result.end());
     return result;
 }
+
+size_t BiQuadraticEquation::degree() const
+{
+    // helps to define type of ane equation from BaseEquation class
+    // could use enum {  Linear Quadratic BuQuadratic } but degree() also works fine.
+    return 4;
+}

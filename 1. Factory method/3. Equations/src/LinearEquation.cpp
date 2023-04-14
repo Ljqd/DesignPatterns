@@ -26,3 +26,10 @@ std::string LinearEquation::getEquationAsString() const
 {
     return std::to_string(a) + "x + " + std::to_string(b) + " = 0";
 }
+
+size_t LinearEquation::degree() const
+{
+    // helps to define type of ane equation from BaseEquation class
+    // could use enum {  Linear Quadratic BuQuadratic } but degree() also works fine.
+    return 1;
+}

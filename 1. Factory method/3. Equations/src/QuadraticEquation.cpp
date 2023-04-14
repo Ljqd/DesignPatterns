@@ -43,3 +43,10 @@ std::string QuadraticEquation::getEquationAsString() const
 {
     return std::to_string(a) + "x^2 + " + std::to_string(b) + "x + " + std::to_string(c) + " = 0";
 }
+
+size_t QuadraticEquation::degree() const
+{
+    // helps to define type of ane equation from BaseEquation class
+    // could use enum {  Linear Quadratic BuQuadratic } but degree() also works fine.
+    return 2;
+}

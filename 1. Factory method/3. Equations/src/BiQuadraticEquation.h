@@ -16,6 +16,7 @@ public:
 
     std::vector<float> solve() override;
     std::string getEquationAsString() const override;
+    size_t degree() const override;
 
 private:
     std::vector<float> processSingleSolution(std::vector<float>& solutions);
