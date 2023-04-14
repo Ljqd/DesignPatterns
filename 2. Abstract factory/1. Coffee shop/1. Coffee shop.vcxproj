@@ -129,27 +129,38 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Americano.cpp" />
-    <ClCompile Include="src\AmericanoMachine.cpp" />
     <ClCompile Include="src\Cappuccino.cpp" />
-    <ClCompile Include="src\CappuccinoMachine.cpp" />
     <ClCompile Include="src\Coffee.cpp" />
+    <ClCompile Include="src\CoffeeMachine.cpp" />
+    <ClCompile Include="src\CoffeeMachineKeurig.cpp" />
+    <ClCompile Include="src\CoffeeMachineMelitta.cpp" />
+    <ClCompile Include="src\CoffeeMachineNestle.cpp" />
     <ClCompile Include="src\Espresso.cpp" />
-    <ClCompile Include="src\EspressoMachine.cpp" />
     <ClCompile Include="src\Latte.cpp" />
-    <ClCompile Include="src\LatteMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Americano.h" />
-    <ClInclude Include="src\AmericanoMachine.h" />
-    <ClInclude Include="src\Cappuccino.h" />
-    <ClInclude Include="src\CappuccinoMachine.h" />
-    <ClInclude Include="src\Coffee.h" />
+    <ClInclude Include="src\AmericanoKeurig.h" />
+    <ClInclude Include="src\AmericanoMelitta.h" />
+    <ClInclude Include="src\AmericanoNestle.h" />
+    <ClInclude Include="src\CappuccinoKeurig.h" />
+    <ClInclude Include="src\CappuccinoMelitta.h" />
+    <ClInclude Include="src\CappuccinoNestle.h" />
     <ClInclude Include="src\CoffeeMachine.h" />
+    <ClInclude Include="src\Americano.h" />
+    <ClInclude Include="src\Cappuccino.h" />
+    <ClInclude Include="src\Coffee.h" />
+    <ClInclude Include="src\CoffeeMachineKeurig.h" />
+    <ClInclude Include="src\CoffeeMachineMelitta.h" />
+    <ClInclude Include="src\CoffeeMachineNestle.h" />
     <ClInclude Include="src\CoffeeShop.h" />
     <ClInclude Include="src\Espresso.h" />
-    <ClInclude Include="src\EspressoMachine.h" />
+    <ClInclude Include="src\EspressoKeurig.h" />
+    <ClInclude Include="src\EspressoMelitta.h" />
+    <ClInclude Include="src\EspressoNestle.h" />
     <ClInclude Include="src\Latte.h" />
-    <ClInclude Include="src\LatteMachine.h" />
+    <ClInclude Include="src\LatteKeurig.h" />
+    <ClInclude Include="src\LatteMelitta.h" />
+    <ClInclude Include="src\LatteNestle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
