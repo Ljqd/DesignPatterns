@@ -14,6 +14,9 @@ void Workspace::test_file(const std::string& path)
         FileReader reader(path);
         FileWriter writer = {};
 
+        std::string minSingleEquation, maxSingleEquation;
+        float minSolution = INFINITY, maxSolution = -INFINITY;
+
         std::cout << "Path: " << path << '\n';
 
         while (!reader.isEoF()) {
@@ -34,7 +37,24 @@ void Workspace::test_file(const std::string& path)
                 writer.addOne(equation->getEquationAsString(), solutions);
             else
                 writer.addInf(equation->getEquationAsString(), solutions);
+
+            if (solutions.size() == 1 && solutions[0] != INFINITY)
+            {
+                if (solutions[0] > maxSolution)
+                {
+                    maxSolution = solutions[0];
+                    maxSingleEquation = equation->getEquationAsString();
+                }
+                else if (solutions[0] < minSolution)
+                {
+                    minSolution = solutions[0];
+                    minSingleEquation = equation->getEquationAsString();
+                }
+            }
         }
+
+        std::cout << "\tMax single solution: " << maxSolution << " in " << maxSingleEquation << '\n';
+        std::cout << "\tMin single solution: " << minSolution << " in " << minSingleEquation << std::endl;
     }
     catch (const std::runtime_error& e) {
         std::cerr << "Error: " << e.what() << std::endl;
