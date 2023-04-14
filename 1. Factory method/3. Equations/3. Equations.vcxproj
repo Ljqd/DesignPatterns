@@ -127,7 +127,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="3. Equations.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\BiQuadraticEquation.cpp" />
+    <ClCompile Include="src\BiQuadraticEquationCreator.cpp" />
+    <ClCompile Include="src\FileReader.cpp" />
+    <ClCompile Include="src\FileWriter.cpp" />
+    <ClCompile Include="src\LinearEquation.cpp" />
+    <ClCompile Include="src\LinearEquationCreator.cpp" />
+    <ClCompile Include="src\QuadraticEquation.cpp" />
+    <ClCompile Include="src\QuadraticEquationCreator.cpp" />
+    <ClCompile Include="src\Workspace.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\BaseEquation.h" />
+    <ClInclude Include="src\BaseEquationCreator.h" />
+    <ClInclude Include="src\BiQuadraticEquation.h" />
+    <ClInclude Include="src\BiQuadraticEquationCreator.h" />
+    <ClInclude Include="src\FileReader.h" />
+    <ClInclude Include="src\FileWriter.h" />
+    <ClInclude Include="src\LinearEquation.h" />
+    <ClInclude Include="src\LinearEquationCreator.h" />
+    <ClInclude Include="src\QuadraticEquation.h" />
+    <ClInclude Include="src\QuadraticEquationCreator.h" />
+    <ClInclude Include="src\Workspace.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\input01.txt" />
+    <Text Include="data\input02.txt" />
+    <Text Include="data\input03.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
