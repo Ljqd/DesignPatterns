@@ -1,9 +1,11 @@
 #pragma once
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
+#include <iostream> // cout
+#include <vector> // vector<float>
+#include <string> 
+#include <sstream> // "1 2 3" line -> {1, 2, 3} vector
+#include <memory> // unique_ptr
+#include <algorithm> // sort(vector)
 #include <cassert>
 
 #include "BaseEquation.h"
@@ -23,4 +25,6 @@ private:
     void test_linear();
     void test_quadratic();
     void test_biquadratic();
+    std::vector<float> getCoefficients(std::string& line);
+    std::unique_ptr<BaseEquation> getEquation(std::vector<float>& coefficients);
 };
