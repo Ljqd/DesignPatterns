@@ -2,10 +2,7 @@
 
 
 BiQuadraticEquation::BiQuadraticEquation(float a, float b, float c) : a{ a }, b{ b }, c{ c }
-{
-    if (a == 0 && b == 0 && c == 0)
-        throw("LinearEquation: a == b == c == 0;");
-}
+{}
 
 BiQuadraticEquation::BiQuadraticEquation(const std::vector<float>& coefficients) :
     a{ coefficients[2] }, b{ coefficients[1] }, c{ coefficients[0] }
@@ -13,6 +10,9 @@ BiQuadraticEquation::BiQuadraticEquation(const std::vector<float>& coefficients)
 
 std::vector<float> BiQuadraticEquation::solve()
 {
+    if (a == 0 && b == 0 && c == 0)
+        return std::vector<float>{ INFINITY };
+
     // replace t = x^2 and solve
     QuadraticEquation temp = { a, b, c };
     std::vector<float> solutions = temp.solve();
