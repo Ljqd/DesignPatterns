@@ -12,7 +12,7 @@ void WheelsBuilder::reset()
     std::unique_ptr<Wheels> product = std::make_unique<Wheels>();
 }
 
-std::unique_ptr<Wheels> WheelsBuilder::getProduct()
+std::unique_ptr<Wheels> WheelsBuilder::build()
 {
     std::unique_ptr<Wheels> result = std::move(product);
     reset();

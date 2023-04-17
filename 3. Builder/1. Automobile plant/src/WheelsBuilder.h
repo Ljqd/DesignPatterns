@@ -12,7 +12,7 @@ namespace CarModule
         WheelsBuilder();
 
         void reset();
-        std::unique_ptr<Wheels> getProduct();
+        std::unique_ptr<Wheels> build();
 
         WheelsBuilder& setMaterial(Wheels::Material material);
         WheelsBuilder& setDiameter(float diameter);
