@@ -38,7 +38,7 @@ namespace CarModule
     template<typename EngineType>
     void EngineBuilder<EngineType>::reset()
     {
-        std::unique_ptr<Engine> product = std::make_unique<EngineType>();
+        product = std::make_unique<EngineType>();
     }
 
     template<typename EngineType>

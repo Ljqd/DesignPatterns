@@ -9,7 +9,7 @@ WheelsBuilder::WheelsBuilder()
 
 void WheelsBuilder::reset()
 {
-    std::unique_ptr<Wheels> product = std::make_unique<Wheels>();
+    product = std::make_unique<Wheels>();
 }
 
 std::unique_ptr<Wheels> WheelsBuilder::build()

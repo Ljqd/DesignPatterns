@@ -40,7 +40,7 @@ namespace CarModule
     template<typename TransmissionType>
     void TransmissionBuilder<TransmissionType>::reset()
     {
-        std::unique_ptr<Transmission> product = std::make_unique<TransmissionType>();
+        product = std::make_unique<TransmissionType>();
     }
 
     template<typename TransmissionType>
