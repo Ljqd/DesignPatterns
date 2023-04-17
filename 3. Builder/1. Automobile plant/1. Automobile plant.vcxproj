@@ -128,6 +128,37 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Car.cpp" />
+    <ClCompile Include="src\CarBuilder.cpp" />
+    <ClCompile Include="src\CarHatchback.cpp" />
+    <ClCompile Include="src\CarSedan.cpp" />
+    <ClCompile Include="src\CarSuv.cpp" />
+    <ClCompile Include="src\ElectricEngine.cpp" />
+    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\HydraulicTransmission.cpp" />
+    <ClCompile Include="src\MechanicalTransmission.cpp" />
+    <ClCompile Include="src\TransmissionBuilder.cpp" />
+    <ClCompile Include="src\Wheels.cpp" />
+    <ClCompile Include="src\WheelsBuilder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Car.h" />
+    <ClInclude Include="src\CarBuilder.h" />
+    <ClInclude Include="src\CarHatchback.h" />
+    <ClInclude Include="src\CarSedan.h" />
+    <ClInclude Include="src\CarSuv.h" />
+    <ClInclude Include="src\Color.h" />
+    <ClInclude Include="src\DieselEngine.h" />
+    <ClInclude Include="src\ElectricEngine.h" />
+    <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\EngineBuilder.h" />
+    <ClInclude Include="src\GasolineEngine.h" />
+    <ClInclude Include="src\HydraulicTransmission.h" />
+    <ClInclude Include="src\MechanicalTransmission.h" />
+    <ClInclude Include="src\Transmission.h" />
+    <ClInclude Include="src\TransmissionBuilder.h" />
+    <ClInclude Include="src\Wheels.h" />
+    <ClInclude Include="src\WheelsBuilder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
