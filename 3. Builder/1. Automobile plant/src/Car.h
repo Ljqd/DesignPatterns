@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 #include "Color.h"
 #include "Engine.h"
@@ -22,6 +23,8 @@ namespace CarModule
 		std::unique_ptr<Engine> getEngine();
 		std::unique_ptr<Transmission> getTransmission();
 		std::unique_ptr<Wheels> getWheels();
+
+		std::string getString() const;
 
 	protected:
 		Color color;

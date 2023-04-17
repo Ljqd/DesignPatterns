@@ -42,3 +42,9 @@ std::unique_ptr<Wheels> Car::getWheels()
 {
     return std::move(wheels);
 }
+
+std::string Car::getString() const
+{
+    std::string str = "Just something";
+    return str;
+}
