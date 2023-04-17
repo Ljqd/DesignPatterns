@@ -14,9 +14,9 @@ namespace CarModule
 	{
 	public:
 		void setColor(Color color);
-		void setEngine(std::unique_ptr<Engine> engine);
-		void setTransmission(std::unique_ptr<Transmission> transmission);
-		void setWheels(std::unique_ptr<Wheels> wheels);
+		void setEngine(std::unique_ptr<Engine>& engine);
+		void setTransmission(std::unique_ptr<Transmission>& transmission);
+		void setWheels(std::unique_ptr<Wheels>& wheels);
 
 		Color getColor() const;
 		std::unique_ptr<Engine> getEngine();

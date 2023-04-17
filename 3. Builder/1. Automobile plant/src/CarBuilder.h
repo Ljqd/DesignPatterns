@@ -16,9 +16,9 @@ namespace CarModule
         std::unique_ptr<Car> getCar();
 
         CarBuilder<CarType>& setColor(Color color);
-        CarBuilder<CarType>& setEngine(std::unique_ptr<Engine> engine);
-        CarBuilder<CarType>& setTransmission(std::unique_ptr<Transmission> transmission);
-        CarBuilder<CarType>& setWheels(std::unique_ptr<Wheels> wheels);
+        CarBuilder<CarType>& setEngine(std::unique_ptr<Engine>& engine);
+        CarBuilder<CarType>& setTransmission(std::unique_ptr<Transmission>& transmission);
+        CarBuilder<CarType>& setWheels(std::unique_ptr<Wheels>& wheels);
     protected:
         std::unique_ptr<Car> car;
     };
@@ -49,21 +49,21 @@ namespace CarModule
     }
 
     template<typename CarType>
-    CarBuilder<CarType>& CarBuilder<CarType>::setEngine(std::unique_ptr<Engine> engine)
+    CarBuilder<CarType>& CarBuilder<CarType>::setEngine(std::unique_ptr<Engine>& engine)
     {
         car->setEngine(engine);
         return *this;
     }
 
     template<typename CarType>
-    CarBuilder<CarType>& CarBuilder<CarType>::setTransmission(std::unique_ptr<Transmission> transmission)
+    CarBuilder<CarType>& CarBuilder<CarType>::setTransmission(std::unique_ptr<Transmission>& transmission)
     {
         car->setTransmission(transmission);
         return *this;
     }
 
     template<typename CarType>
-    CarBuilder<CarType>& CarBuilder<CarType>::setWheels(std::unique_ptr<Wheels> wheels)
+    CarBuilder<CarType>& CarBuilder<CarType>::setWheels(std::unique_ptr<Wheels>& wheels)
     {
         car->setWheels(wheels);
         return *this;

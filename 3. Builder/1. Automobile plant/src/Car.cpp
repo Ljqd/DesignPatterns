@@ -8,17 +8,17 @@ void Car::setColor(Color color)
     this->color = color;
 }
 
-void Car::setEngine(std::unique_ptr<Engine> engine)
+void Car::setEngine(std::unique_ptr<Engine>& engine)
 {
     this->engine.reset(engine.release());
 }
 
-void Car::setTransmission(std::unique_ptr<Transmission> transmission)
+void Car::setTransmission(std::unique_ptr<Transmission>& transmission)
 {
     this->transmission.reset(transmission.release());
 }
 
-void Car::setWheels(std::unique_ptr<Wheels> wheels)
+void Car::setWheels(std::unique_ptr<Wheels>& wheels)
 {
     this->wheels.reset(wheels.release());
 }
