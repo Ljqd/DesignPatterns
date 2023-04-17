@@ -10,6 +10,7 @@ namespace CarModule
             STEEL, LIGHT_ALLOY
         };
 
+        Wheels();
         Wheels(Material material, float diameter);
 
         void setMaterial(Material newMaterial);

@@ -2,6 +2,9 @@
 
 using namespace CarModule;
 
+Wheels::Wheels() : material(Material::LIGHT_ALLOY), diameter(10)
+{}
+
 Wheels::Wheels(Material material, float diameter) : material(material)
 {
     if (diameter < 0)
