@@ -17,7 +17,7 @@ namespace CarModule
         std::unique_ptr<Transmission> build();
         void reset();
 
-        TransmissionBuilder& setGears(size_t gears) = 0;
+        TransmissionBuilder& setGears(size_t gears);
 
     protected:
         std::unique_ptr<Transmission> product;
