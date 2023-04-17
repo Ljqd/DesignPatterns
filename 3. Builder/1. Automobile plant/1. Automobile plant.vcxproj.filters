@@ -21,15 +21,6 @@
     <ClCompile Include="src\Car.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CarHatchback.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CarSedan.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CarSuv.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ElectricEngine.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
@@ -45,13 +36,10 @@
     <ClCompile Include="src\Wheels.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CarBuilder.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TransmissionBuilder.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\WheelsBuilder.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Director.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -105,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\WheelsBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Director.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

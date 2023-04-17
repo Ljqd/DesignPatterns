@@ -129,15 +129,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Car.cpp" />
-    <ClCompile Include="src\CarBuilder.cpp" />
-    <ClCompile Include="src\CarHatchback.cpp" />
-    <ClCompile Include="src\CarSedan.cpp" />
-    <ClCompile Include="src\CarSuv.cpp" />
+    <ClCompile Include="src\Director.cpp" />
     <ClCompile Include="src\ElectricEngine.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\HydraulicTransmission.cpp" />
     <ClCompile Include="src\MechanicalTransmission.cpp" />
-    <ClCompile Include="src\TransmissionBuilder.cpp" />
     <ClCompile Include="src\Wheels.cpp" />
     <ClCompile Include="src\WheelsBuilder.cpp" />
   </ItemGroup>
@@ -149,6 +145,7 @@
     <ClInclude Include="src\CarSuv.h" />
     <ClInclude Include="src\Color.h" />
     <ClInclude Include="src\DieselEngine.h" />
+    <ClInclude Include="src\Director.h" />
     <ClInclude Include="src\ElectricEngine.h" />
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\EngineBuilder.h" />
