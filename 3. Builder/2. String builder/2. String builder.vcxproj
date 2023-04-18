@@ -127,7 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="2. String builder.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\StringBuilder.cpp" />
+    <ClCompile Include="src\StringContainer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\StringBuilder.h" />
+    <ClInclude Include="src\StringContainer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
