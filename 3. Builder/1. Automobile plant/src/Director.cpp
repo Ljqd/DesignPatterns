@@ -39,8 +39,8 @@ std::unique_ptr<Car> Director::getStandardHatchback()
 std::unique_ptr<Car> Director::getPremiumHatchback()
 {
     // get engine
-    EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
+    EngineBuilder<GasolineEngine> engineBuilder = {};
+    std::unique_ptr<Engine> engine = engineBuilder.setPower(premiumEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
@@ -48,7 +48,7 @@ std::unique_ptr<Car> Director::getPremiumHatchback()
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
+    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(premiumDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarHatchback> builder = {};
@@ -65,8 +65,8 @@ std::unique_ptr<Car> Director::getPremiumHatchback()
 std::unique_ptr<Car> Director::getElectricHatchback()
 {
     // get engine
-    EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
+    EngineBuilder<ElectricEngine> engineBuilder = {};
+    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
@@ -74,7 +74,7 @@ std::unique_ptr<Car> Director::getElectricHatchback()
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
+    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarHatchback> builder = {};
@@ -103,8 +103,8 @@ std::unique_ptr<Car> Director::getStandardSedan()
     std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
 
     // Finally, the car builder
-    CarBuilder<CarHatchback> builder = {};
-    builder.setColor(hatchbackColor);
+    CarBuilder<CarSedan> builder = {};
+    builder.setColor(Director::sedanColor);
     builder.setEngine(engine);
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
@@ -117,8 +117,8 @@ std::unique_ptr<Car> Director::getStandardSedan()
 std::unique_ptr<Car> Director::getPremiumSedan()
 {
     // get engine
-    EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
+    EngineBuilder<GasolineEngine> engineBuilder = {};
+    std::unique_ptr<Engine> engine = engineBuilder.setPower(premiumEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
@@ -126,11 +126,11 @@ std::unique_ptr<Car> Director::getPremiumSedan()
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
+    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(premiumDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
-    CarBuilder<CarHatchback> builder = {};
-    builder.setColor(hatchbackColor);
+    CarBuilder<CarSedan> builder = {};
+    builder.setColor(sedanColor);
     builder.setEngine(engine);
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
@@ -143,8 +143,8 @@ std::unique_ptr<Car> Director::getPremiumSedan()
 std::unique_ptr<Car> Director::getElectricSedan()
 {
     // get engine
-    EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
+    EngineBuilder<ElectricEngine> engineBuilder = {};
+    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
@@ -152,11 +152,11 @@ std::unique_ptr<Car> Director::getElectricSedan()
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
+    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
-    CarBuilder<CarHatchback> builder = {};
-    builder.setColor(hatchbackColor);
+    CarBuilder<CarSedan> builder = {};
+    builder.setColor(sedanColor);
     builder.setEngine(engine);
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
@@ -181,8 +181,8 @@ std::unique_ptr<Car> Director::getStandardSuv()
     std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
 
     // Finally, the car builder
-    CarBuilder<CarHatchback> builder = {};
-    builder.setColor(hatchbackColor);
+    CarBuilder<CarSuv> builder = {};
+    builder.setColor(suvColor);
     builder.setEngine(engine);
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
@@ -196,7 +196,7 @@ std::unique_ptr<Car> Director::getPremiumSuv()
 {
     // get engine
     EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
+    std::unique_ptr<Engine> engine = engineBuilder.setPower(premiumEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
@@ -204,11 +204,11 @@ std::unique_ptr<Car> Director::getPremiumSuv()
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
+    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(premiumDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
-    CarBuilder<CarHatchback> builder = {};
-    builder.setColor(hatchbackColor);
+    CarBuilder<CarSuv> builder = {};
+    builder.setColor(suvColor);
     builder.setEngine(engine);
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
@@ -222,7 +222,7 @@ std::unique_ptr<Car> Director::getElectricSuv()
 {
     // get engine
     EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
+    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
@@ -230,11 +230,11 @@ std::unique_ptr<Car> Director::getElectricSuv()
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
+    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
-    CarBuilder<CarHatchback> builder = {};
-    builder.setColor(hatchbackColor);
+    CarBuilder<CarSuv> builder = {};
+    builder.setColor(suvColor);
     builder.setEngine(engine);
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
