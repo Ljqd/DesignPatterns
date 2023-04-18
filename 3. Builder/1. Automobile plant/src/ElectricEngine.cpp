@@ -12,3 +12,8 @@ size_t ElectricEngine::getChargingTime() const
 {
     return chargingTime;
 }
+
+std::string ElectricEngine::getString()
+{
+	return "ElectricEngine: P(" + std::to_string(power) + +"), cp(" + std::to_string(capacity) + ");";
+}
