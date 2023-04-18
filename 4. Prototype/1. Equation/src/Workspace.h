@@ -21,6 +21,7 @@ class Workspace
 public:
     void test_manually();
     void test_file(const std::string& path);
+    void test_clone();
 
 private:
     void test_linear();
