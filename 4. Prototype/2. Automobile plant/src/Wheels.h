@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <memory>
 
 namespace CarModule
 {
@@ -22,6 +23,8 @@ namespace CarModule
         float getDiameter() const;
 
         std::string getSring() const;
+
+        std::unique_ptr<Wheels> clone();
 
     private:
         Material material;
