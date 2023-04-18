@@ -27,6 +27,8 @@ namespace CarModule
 	class Director
 	{
 	public:
+		static Director* getInstance();
+
 		std::unique_ptr<Car> getStandardHatchback();
 		std::unique_ptr<Car> getPremiumHatchback();
 		std::unique_ptr<Car> getElectricHatchback();
@@ -40,6 +42,9 @@ namespace CarModule
 		std::unique_ptr<Car> getElectricSuv();
 
 	private:
+		Director() = default;
+		static Director* director;
+
 		// temporary variables, just for demonstration
 		static const size_t standardEnginePower, standardEngineCapacity;
 		static const size_t premiumEnginePower, premiumEngineCapacity;

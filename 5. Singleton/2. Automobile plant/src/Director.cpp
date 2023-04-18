@@ -10,6 +10,17 @@ const Color Director::hatchbackColor = Color::BLUE, Director::sedanColor = Color
 const Wheels::Material Director::standardMaterial = Wheels::Material::LIGHT_ALLOY, Director::premiumMaterial = Wheels::Material::STEEL;
 const float Director::standardDiameter = 12, Director::premiumDiameter = 14;
 
+Director* Director::director = nullptr;
+
+Director* Director::getInstance()
+{
+
+    if (director == nullptr) {
+        director = new Director();
+    }
+    return director;
+}
+
 std::unique_ptr<Car> Director::getStandardHatchback()
 {
     // get engine
