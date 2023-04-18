@@ -14,6 +14,8 @@ namespace CarModule
 
 		std::string getString() override;
 
+		std::unique_ptr<Engine> clone() override;
+
 	private:
 		size_t chargingTime;
 	};
