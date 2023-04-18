@@ -1,0 +1,39 @@
+#pragma once
+
+#include "Car.h"
+
+namespace CarModule
+{
+    class CarSedan : public Car
+    {
+    protected:
+        std::string getCarName() const override {
+            return "CarSedan";
+        }
+
+        std::string getString() const override {
+            std::string carString = getCarName() + ": \n";
+            std::string componentsString = getComponentsString();
+
+            return carString + componentsString;
+        }
+
+        std::unique_ptr<Car> clone() override {
+            // since we can't copy unique_prt, we have 2 options:
+            // - refuse to use unique_prt
+            // - clone the object's components explicitly
+            auto color = this->color;
+            auto engine = this->engine->clone();
+            auto transmission = this->transmission->clone();
+            auto wheels = this->wheels->clone();
+
+            std::unique_ptr<CarSedan> newObject = std::make_unique<CarSedan>();
+            newObject->setColor(color);
+            newObject->setEngine(engine);
+            newObject->setTransmission(transmission);
+            newObject->setWheels(wheels);
+
+            return std::move(newObject);
+        }
+    };
+}
