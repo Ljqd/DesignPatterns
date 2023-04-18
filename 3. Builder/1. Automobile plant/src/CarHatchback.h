@@ -5,5 +5,17 @@
 namespace CarModule
 {
     class CarHatchback : public Car
-    {};
+    {
+    protected:
+        std::string getCarName() const override {
+            return "CarHatchback";
+        }
+
+        std::string getString() const override {
+            std::string carString = getCarName() + ": \n";
+            std::string componentsString = getComponentsString();
+
+            return carString + componentsString;
+        }
+    };
 }

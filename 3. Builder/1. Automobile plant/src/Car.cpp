@@ -43,8 +43,31 @@ std::unique_ptr<Wheels> Car::getWheels()
     return std::move(wheels);
 }
 
-std::string Car::getString() const
+std::string Car::getComponentsString() const
 {
-    std::string str = "Just something";
-    return str;
+    std::string colorString = {};
+    switch (color)
+    {
+    case RED:
+        colorString = "red";
+        break;
+    case GREEN:
+        colorString = "green";
+        break;
+    case BLUE:
+        colorString = "blue";
+        break;
+    default:
+        break;
+    }
+
+    std::string engineString = engine->getString();
+    std::string transmissionString = transmission->getString();
+    std::string wheelsString = wheels->getSring();
+
+    std::string result = "";
+    for (const std::string& component : { engineString, transmissionString, wheelsString })
+        result += '\t' + component + '\n';
+
+    return result;
 }

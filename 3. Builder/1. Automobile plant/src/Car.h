@@ -24,9 +24,12 @@ namespace CarModule
 		std::unique_ptr<Transmission> getTransmission();
 		std::unique_ptr<Wheels> getWheels();
 
-		std::string getString() const;
+		virtual std::string getString() const = 0;
 
 	protected:
+		virtual std::string getCarName() const = 0;
+		std::string getComponentsString() const;
+
 		Color color;
 		std::unique_ptr<Engine> engine;
 		std::unique_ptr<Transmission> transmission;
