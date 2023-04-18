@@ -28,19 +28,19 @@ Color Car::getColor() const
     return color;
 }
 
-std::unique_ptr<Engine> Car::getEngine()
+Engine& Car::getEngine()
 {
-    return std::move(engine);
+    return *engine;
 }
 
-std::unique_ptr<Transmission> Car::getTransmission()
+Transmission& Car::getTransmission()
 {
-    return std::move(transmission);
+    return *transmission;
 }
 
-std::unique_ptr<Wheels> Car::getWheels()
+Wheels& Car::getWheels()
 {
-    return std::move(wheels);
+    return *wheels;
 }
 
 std::string Car::getComponentsString() const

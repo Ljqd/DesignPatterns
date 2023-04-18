@@ -20,11 +20,13 @@ namespace CarModule
 		void setWheels(std::unique_ptr<Wheels>& wheels);
 
 		Color getColor() const;
-		std::unique_ptr<Engine> getEngine();
-		std::unique_ptr<Transmission> getTransmission();
-		std::unique_ptr<Wheels> getWheels();
+		Engine& getEngine();
+		Transmission& getTransmission();
+		Wheels& getWheels();
 
 		virtual std::string getString() const = 0;
+		
+		virtual std::unique_ptr<Car> clone() = 0;
 
 	protected:
 		virtual std::string getCarName() const = 0;
