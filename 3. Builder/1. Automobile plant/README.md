@@ -11,5 +11,5 @@ In addition, create a **Director** class whose task will be to combine the compl
 # Solution
 ## Class diagram
 ![Class diagram](./docs/1.svg)
-## Sequence diagram
+## Sequence diagram (only for getStandardHatchback(), other methods are identical, just different arguments)
 ![Sequence diagram](./docs/2.svg)
