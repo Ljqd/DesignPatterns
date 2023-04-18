@@ -16,6 +16,8 @@ public:
     std::string getEquationAsString() const override;
     size_t degree() const override;
 
+    std::unique_ptr<BaseEquation> clone() override;
+
 private:
     float a, b, c;
 };

@@ -36,3 +36,8 @@ size_t LinearEquation::degree() const
     // could use enum {  Linear Quadratic BuQuadratic } but degree() also works fine.
     return 1;
 }
+
+std::unique_ptr<BaseEquation> LinearEquation::clone()
+{
+    return std::make_unique<LinearEquation>(*this);
+}

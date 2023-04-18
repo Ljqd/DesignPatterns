@@ -83,3 +83,8 @@ size_t BiQuadraticEquation::degree() const
     // could use enum {  Linear Quadratic BuQuadratic } but degree() also works fine.
     return 4;
 }
+
+std::unique_ptr<BaseEquation> BiQuadraticEquation::clone()
+{
+    return std::make_unique<BiQuadraticEquation>(*this);
+}

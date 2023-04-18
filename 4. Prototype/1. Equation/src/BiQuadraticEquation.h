@@ -18,6 +18,8 @@ public:
     std::string getEquationAsString() const override;
     size_t degree() const override;
 
+    std::unique_ptr<BaseEquation> clone() override;
+
 private:
     std::vector<float> processSingleSolution(std::vector<float>& solutions);
     std::vector<float> processMultipleSolution(std::vector<float>& solutions);
