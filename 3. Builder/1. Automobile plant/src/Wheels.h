@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 namespace CarModule
 {
     class Wheels
@@ -18,6 +20,8 @@ namespace CarModule
 
         void setDiameter(float diameter);
         float getDiameter() const;
+
+        std::string getSring() const;
 
     private:
         Material material;

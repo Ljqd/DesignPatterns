@@ -31,3 +31,10 @@ float Wheels::getDiameter() const
 {
     return diameter;
 }
+
+std::string Wheels::getSring() const
+{
+    // later - switch-case will do
+    std::string m = material == Material::LIGHT_ALLOY ? "light alloy" : "steel";
+    return "Wheels: d(" + std::to_string(diameter) + "), m(" + m + ");";
+}
