@@ -7,7 +7,7 @@
 #define CLEAR(x) memset(&x, 0, sizeof(x))
 
 // Useful links:
-// // About VS dependincies
+// - About VS dependincies
 // https://stackoverflow.com/questions/52969159/vs-2017-unable-to-open-include-file-jni-h (you need also set Link:Input)
 // - "Tutorials"
 // https://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/jniTOC.html
@@ -31,7 +31,7 @@ JNIEnv* create_vm(JavaVM** jvm)
     char path[] = "-Djava.class.path=libs/MicroUsb.jar";
     options[0].optionString = path; //Path to the java source code
     options[0].extraInfo = 0;
-    vm_args.version = JNI_VERSION_10;
+    vm_args.version = JNI_VERSION_20;
     vm_args.nOptions = 1;
     vm_args.options = options;
     vm_args.ignoreUnrecognized = false;
@@ -62,5 +62,31 @@ int main()
     {
         printf("Error");
     }
+
+    // Classes: MicroUsbCharger, Charger, MobilePhone
+
+    jclass cls = env->FindClass("com/mobile/Legacy/MobilePhone");
+    if (cls == nullptr) {
+        std::cerr << "Error: class not found" << std::endl;
+        return 1;
+    }
+
+    jclass classClass = env->FindClass("java/lang/Class");
+    jmethodID getMethods = env->GetMethodID(classClass, "getMethods", "()[Ljava/lang/reflect/Method;");
+    jobjectArray methods = (jobjectArray)env->CallObjectMethod(cls, getMethods);
+
+    jint count = env->GetArrayLength(methods);
+
+    for (int i = 0; i < count; i++) {
+        jobject method = env->GetObjectArrayElement(methods, i);
+        jclass methodClass = env->FindClass("java/lang/reflect/Method");
+        jmethodID getName = env->GetMethodID(methodClass, "getName", "()Ljava/lang/String;");
+        jstring methodName = (jstring)env->CallObjectMethod(method, getName);
+        const char* cMethodName = env->GetStringUTFChars(methodName, nullptr);
+        std::cout << "Method " << i + 1 << ": " << cMethodName << std::endl;
+        env->ReleaseStringUTFChars(methodName, cMethodName);
+    }
+
+
     return 0;
 }
