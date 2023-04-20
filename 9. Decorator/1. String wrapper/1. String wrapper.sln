@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1. String wrapper", "1. String wrapper.vcxproj", "{FB7633BF-921A-4AE4-AA16-C3ACC72FA586}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB7633BF-921A-4AE4-AA16-C3ACC72FA586}.Debug|x64.ActiveCfg = Debug|x64
+		{FB7633BF-921A-4AE4-AA16-C3ACC72FA586}.Debug|x64.Build.0 = Debug|x64
+		{FB7633BF-921A-4AE4-AA16-C3ACC72FA586}.Debug|x86.ActiveCfg = Debug|Win32
+		{FB7633BF-921A-4AE4-AA16-C3ACC72FA586}.Debug|x86.Build.0 = Debug|Win32
+		{FB7633BF-921A-4AE4-AA16-C3ACC72FA586}.Release|x64.ActiveCfg = Release|x64
+		{FB7633BF-921A-4AE4-AA16-C3ACC72FA586}.Release|x64.Build.0 = Release|x64
+		{FB7633BF-921A-4AE4-AA16-C3ACC72FA586}.Release|x86.ActiveCfg = Release|Win32
+		{FB7633BF-921A-4AE4-AA16-C3ACC72FA586}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3617A55A-7879-41A7-8BAA-D2A6B914425B}
+	EndGlobalSection
+EndGlobal
