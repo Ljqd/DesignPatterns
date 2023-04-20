@@ -1,0 +1,29 @@
+compilation_database_dir: .
+output_directory: puml
+diagrams:
+  uml:
+    type: class
+    generate_method_arguments: full
+    include_relations_also_as_members: true
+    glob:
+      - ./*.cpp
+      - ./*.h
+    exclude:
+      namespaces:
+        - std
+  sequen:
+    type: sequence
+    glob:
+      - ./*.cpp
+      - ./*.h
+      - ./src/*.cpp
+      - ./src/*.h
+    combine_free_functions_into_file_participants: true
+    include:
+      paths:
+        - ./
+    exclude:
+      namespaces:
+        - std
+    start_from:
+      - function: "main()"
