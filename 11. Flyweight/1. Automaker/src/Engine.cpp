@@ -21,3 +21,8 @@ int Engine::getCapacity() const
 {
     return capacity;
 }
+
+bool Engine::operator==(const Engine& other)
+{
+    return capacity == other.getCapacity() && power == other.getPower();
+}

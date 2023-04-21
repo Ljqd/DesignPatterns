@@ -15,6 +15,8 @@ namespace CarModule
 		void setCapacity(size_t capacity);
 		int getCapacity() const;
 
+		bool operator==(const Engine& other);
+
 		virtual std::string getString() = 0;
 
 		virtual std::shared_ptr<Engine> clone() = 0;

@@ -26,6 +26,8 @@ namespace CarModule
 
         std::shared_ptr<Wheels> clone();
 
+        bool operator==(const Wheels& w);
+
     private:
         Material material;
         float diameter;

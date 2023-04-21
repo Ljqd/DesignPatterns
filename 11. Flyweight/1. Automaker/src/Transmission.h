@@ -17,6 +17,10 @@ namespace CarModule
             return "Transmission: gears = " + std::to_string(gears) + ";";
         }
 
+        bool operator==(const Transmission& t) {
+            return t.gears == this->gears;
+        }
+
     protected:
         size_t gears;
     };

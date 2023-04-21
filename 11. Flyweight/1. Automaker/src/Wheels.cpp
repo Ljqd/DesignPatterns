@@ -43,3 +43,10 @@ std::shared_ptr<Wheels> Wheels::clone()
 {
     return std::make_unique<Wheels>(*this);
 }
+
+bool Wheels::operator==(const Wheels& w)
+{
+    bool s1 = this->getDiameter() == w.getDiameter();
+    bool s2 = this->getMaterial() == w.getMaterial();
+    return s1 == s2;
+}
