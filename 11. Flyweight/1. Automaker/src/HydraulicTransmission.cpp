@@ -13,3 +13,7 @@ size_t HydraulicTransmission::getGears() const
 {
     return gears;
 }
+
+std::unique_ptr<Transmission> HydraulicTransmission::clone() {
+    return std::make_unique<HydraulicTransmission>(*this);
+}

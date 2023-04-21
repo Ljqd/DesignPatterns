@@ -17,3 +17,7 @@ std::string ElectricEngine::getString()
 {
 	return "ElectricEngine: P(" + std::to_string(power) + +"), cp(" + std::to_string(capacity) + ");";
 }
+
+std::unique_ptr<Engine> ElectricEngine::clone() {
+	return std::make_unique<ElectricEngine>(*this);
+}

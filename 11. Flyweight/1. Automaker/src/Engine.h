@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <string>
 
 namespace CarModule
@@ -15,6 +16,8 @@ namespace CarModule
 		int getCapacity() const;
 
 		virtual std::string getString() = 0;
+
+		virtual std::unique_ptr<Engine> clone() = 0;
 
 	protected:
 		size_t power, capacity;

@@ -38,3 +38,8 @@ std::string Wheels::getSring() const
     std::string m = material == Material::LIGHT_ALLOY ? "light alloy" : "steel";
     return "Wheels: d(" + std::to_string(diameter) + "), m(" + m + ");";
 }
+
+std::unique_ptr<Wheels> Wheels::clone()
+{
+    return std::make_unique<Wheels>(*this);
+}

@@ -9,5 +9,7 @@ namespace CarModule
     public:
         void setGears(size_t gears) override;
         size_t getGears() const override;
+
+        std::unique_ptr<Transmission> clone() override;
     };
 }
