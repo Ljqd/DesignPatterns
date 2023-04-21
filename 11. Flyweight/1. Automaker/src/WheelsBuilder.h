@@ -1,8 +1,10 @@
 #pragma once
 
 #include <memory>
+#include <tuple>
 
 #include "Wheels.h"
+#include "FlyweightContainer.h"
 
 namespace CarModule
 {
@@ -18,6 +20,9 @@ namespace CarModule
         WheelsBuilder& setDiameter(float diameter);
 
     private:
-        std::shared_ptr<Wheels> product;
+        Wheels::Material cachedMaterial;
+        float cachedDiameter;
+
+        FlyweightContainer<Wheels> cachedWheels;
     };
 }

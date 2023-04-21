@@ -1,10 +1,10 @@
 #pragma once
 
-#pragma once
-
 #include <memory>
+#include <tuple>
 
 #include "Transmission.h"
+#include "FlyweightContainer.h"
 
 namespace CarModule
 {
@@ -20,8 +20,12 @@ namespace CarModule
         TransmissionBuilder& setGears(size_t gears);
 
     protected:
-        std::shared_ptr<Transmission> product;
+        size_t cachedGears;
+
+        FlyweightContainer<Transmission> cachedTransmission;
     };
+
+    // =========================================================================
 
     template<typename TransmissionType>
     TransmissionBuilder<TransmissionType>::TransmissionBuilder()
@@ -32,7 +36,8 @@ namespace CarModule
     template<typename TransmissionType>
     std::shared_ptr<Transmission> TransmissionBuilder<TransmissionType>::build()
     {
-        std::shared_ptr<Transmission> result = std::move(product);
+        std::tuple<size_t> tpl = { cachedGears };
+        std::shared_ptr<Transmission> result = std::make_shared<TransmissionType>(cachedTransmission.getCachedObject(tpl));
         reset();
         return result;
     }
@@ -40,13 +45,13 @@ namespace CarModule
     template<typename TransmissionType>
     void TransmissionBuilder<TransmissionType>::reset()
     {
-        product = std::make_unique<TransmissionType>();
+        cachedGears = 0;
     }
 
     template<typename TransmissionType>
     TransmissionBuilder<TransmissionType>& TransmissionBuilder<TransmissionType>::setGears(size_t gears)
     {
-        product->setGears(gears);
+        cachedGears = gears;
         return *this;
     }
 }

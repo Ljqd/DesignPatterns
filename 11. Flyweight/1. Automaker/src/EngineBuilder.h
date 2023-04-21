@@ -1,8 +1,10 @@
 #pragma once
 
 #include <memory>
+#include <tuple>
 
 #include "Engine.h"
+#include "FlyweightContainer.h"
 
 namespace CarModule
 {
@@ -18,7 +20,10 @@ namespace CarModule
         EngineBuilder& setPower(size_t power);
 
     protected:
-        std::shared_ptr<Engine> product;
+        size_t cachedCapacity;
+        size_t cachedPower;
+
+        FlyweightContainer<EngineType> cachedEngines;
     };
 
     template<typename EngineType>
@@ -30,7 +35,8 @@ namespace CarModule
     template<typename EngineType>
     std::shared_ptr<Engine> EngineBuilder<EngineType>::build()
     {
-        std::shared_ptr<Engine> result = std::move(product);
+        std::tuple<size_t, size_t> tpl = { cachedCapacity, cachedPower };
+        std::shared_ptr<Engine> result = std::make_shared<EngineType>(cachedEngines.getCachedObject(tpl));
         reset();
         return result;
     }
@@ -38,20 +44,21 @@ namespace CarModule
     template<typename EngineType>
     void EngineBuilder<EngineType>::reset()
     {
-        product = std::make_unique<EngineType>();
+        cachedCapacity = 0;
+        cachedPower = 0;
     }
 
     template<typename EngineType>
     EngineBuilder<EngineType>& EngineBuilder<EngineType>::setCapacity(size_t capacity)
     {
-        product->setCapacity(capacity);
+        cachedCapacity = capacity;
         return *this;
     }
 
     template<typename EngineType>
     EngineBuilder<EngineType>& EngineBuilder<EngineType>::setPower(size_t power)
     {
-        product->setPower(power);
+        cachedPower = power;
         return *this;
     }
 }

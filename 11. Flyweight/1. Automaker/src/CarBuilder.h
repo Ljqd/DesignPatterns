@@ -1,14 +1,21 @@
 #pragma once
 
 #include <memory>
+#include <tuple>
 
 #include "Car.h"
+#include "FlyweightContainer.h"
 
 namespace CarModule
 {
     template<typename CarType>
     class CarBuilder
     {
+        using CarComponentsTuple = std::tuple<
+            Color, std::shared_ptr<Engine>,
+            std::shared_ptr<Transmission>, std::shared_ptr<Wheels>
+        >;
+
     public:
         CarBuilder();
 
@@ -20,8 +27,15 @@ namespace CarModule
         CarBuilder<CarType>& setTransmission(std::shared_ptr<Transmission>& transmission);
         CarBuilder<CarType>& setWheels(std::shared_ptr<Wheels>& wheels);
     protected:
-        std::shared_ptr<Car> car;
+        Color cachedColor;
+        std::shared_ptr<Engine> cachedEngine;
+        std::shared_ptr<Transmission> cachedTransmission;
+        std::shared_ptr<Wheels> cachedWheels;
+
+        FlyweightContainer<CarType> cachedCars;
     };
+
+    // IMPLEMENTATIONS ===================================================
 
     template<typename CarType>
     CarBuilder<CarType>::CarBuilder()
@@ -32,40 +46,46 @@ namespace CarModule
     template<typename CarType>
     void CarBuilder<CarType>::reset()
     {
-        car = std::make_unique<CarType>();
+        cachedColor = {};
+        cachedEngine = nullptr;
+        cachedTransmission = nullptr;
+        cachedWheels = nullptr;
     }
 
     template<typename CarType>
     std::shared_ptr<Car> CarBuilder<CarType>::getCar()
-    {
-        return std::move(car);
+    {        
+        std::tuple<Color, std::shared_ptr<Engine>, std::shared_ptr<Transmission>, std::shared_ptr<Wheels>> tpl = { cachedColor, cachedEngine, cachedTransmission, cachedWheels };
+        std::shared_ptr<CarType> result = cachedCars.getCachedObject(tpl);
+        reset();
+        return result;
     }
 
     template<typename CarType>
     CarBuilder<CarType>& CarBuilder<CarType>::setColor(Color color)
     {
-        car->setColor(color);
+        this->cachedColor = color;
         return *this;
     }
 
     template<typename CarType>
     CarBuilder<CarType>& CarBuilder<CarType>::setEngine(std::shared_ptr<Engine>& engine)
     {
-        car->setEngine(engine);
+        this->cachedEngine = engine;
         return *this;
     }
 
     template<typename CarType>
     CarBuilder<CarType>& CarBuilder<CarType>::setTransmission(std::shared_ptr<Transmission>& transmission)
     {
-        car->setTransmission(transmission);
+        this->cachedTransmission = transmission;
         return *this;
     }
 
     template<typename CarType>
     CarBuilder<CarType>& CarBuilder<CarType>::setWheels(std::shared_ptr<Wheels>& wheels)
     {
-        car->setWheels(wheels);
+        this->cachedWheels = wheels;
         return *this;
     }
 }

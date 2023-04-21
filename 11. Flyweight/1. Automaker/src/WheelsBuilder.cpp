@@ -9,24 +9,26 @@ WheelsBuilder::WheelsBuilder()
 
 void WheelsBuilder::reset()
 {
-    product = std::make_unique<Wheels>();
+    cachedMaterial = {};
+    cachedDiameter = {};
 }
 
 std::shared_ptr<Wheels> WheelsBuilder::build()
 {
-    std::shared_ptr<Wheels> result = std::move(product);
+    std::tuple<Wheels::Material, float> tpl = { cachedMaterial, cachedDiameter };
+    std::shared_ptr<Wheels> result = cachedWheels.getCachedObject(tpl);
     reset();
     return result;
 }
 
 WheelsBuilder& WheelsBuilder::setMaterial(Wheels::Material material)
 {
-    product->setMaterial(material);
+    cachedMaterial = material;
     return *this;
 }
 
 WheelsBuilder& WheelsBuilder::setDiameter(float diameter)
 {
-    product->setDiameter(diameter);
+    cachedDiameter = diameter;
     return *this;
 }
