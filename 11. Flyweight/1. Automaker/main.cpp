@@ -8,14 +8,14 @@ int main()
     CarModule::Director* director = CarModule::Director::getInstance();
 
     // Hatchback
-    std::unique_ptr<CarModule::Car> standardCar1 = director->getStandardHatchback();
-    std::unique_ptr<CarModule::Car> premiumCar1 = director->getPremiumSedan();
-    std::unique_ptr<CarModule::Car> electricCar1 = director->getElectricSuv();
+    std::shared_ptr<CarModule::Car> standardCar1 = director->getStandardHatchback();
+    std::shared_ptr<CarModule::Car> premiumCar1 = director->getPremiumSedan();
+    std::shared_ptr<CarModule::Car> electricCar1 = director->getElectricSuv();
 
     // clone
-    std::unique_ptr<CarModule::Car> standardCar2 = standardCar1->clone();
-    std::unique_ptr<CarModule::Car> premiumCar2 = premiumCar1->clone();
-    std::unique_ptr<CarModule::Car> electricCar2 = electricCar1->clone();
+    std::shared_ptr<CarModule::Car> standardCar2 = standardCar1->clone();
+    std::shared_ptr<CarModule::Car> premiumCar2 = premiumCar1->clone();
+    std::shared_ptr<CarModule::Car> electricCar2 = electricCar1->clone();
 
     // now let's perform some modifications:
     standardCar2->getEngine().setPower(9999);

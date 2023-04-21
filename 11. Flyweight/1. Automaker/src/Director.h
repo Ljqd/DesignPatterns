@@ -29,17 +29,17 @@ namespace CarModule
 	public:
 		static Director* getInstance();
 
-		std::unique_ptr<Car> getStandardHatchback();
-		std::unique_ptr<Car> getPremiumHatchback();
-		std::unique_ptr<Car> getElectricHatchback();
+		std::shared_ptr<Car> getStandardHatchback();
+		std::shared_ptr<Car> getPremiumHatchback();
+		std::shared_ptr<Car> getElectricHatchback();
 
-		std::unique_ptr<Car> getStandardSedan();
-		std::unique_ptr<Car> getPremiumSedan();
-		std::unique_ptr<Car> getElectricSedan();
+		std::shared_ptr<Car> getStandardSedan();
+		std::shared_ptr<Car> getPremiumSedan();
+		std::shared_ptr<Car> getElectricSedan();
 
-		std::unique_ptr<Car> getStandardSuv();
-		std::unique_ptr<Car> getPremiumSuv();
-		std::unique_ptr<Car> getElectricSuv();
+		std::shared_ptr<Car> getStandardSuv();
+		std::shared_ptr<Car> getPremiumSuv();
+		std::shared_ptr<Car> getElectricSuv();
 
 	private:
 		Director() = default;

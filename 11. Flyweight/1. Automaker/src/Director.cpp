@@ -21,19 +21,19 @@ Director* Director::getInstance()
     return director;
 }
 
-std::unique_ptr<Car> Director::getStandardHatchback()
+std::shared_ptr<Car> Director::getStandardHatchback()
 {
     // get engine
     EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
+    std::shared_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
-    std::unique_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
+    std::shared_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
     
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
+    std::shared_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarHatchback> builder = {};
@@ -42,24 +42,24 @@ std::unique_ptr<Car> Director::getStandardHatchback()
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
 
-    std::unique_ptr<Car> result = builder.getCar();
+    std::shared_ptr<Car> result = builder.getCar();
 
     return std::move(result);
 }
 
-std::unique_ptr<Car> Director::getPremiumHatchback()
+std::shared_ptr<Car> Director::getPremiumHatchback()
 {
     // get engine
     EngineBuilder<GasolineEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(premiumEnginePower).setCapacity(premiumEngineCapacity).build();
+    std::shared_ptr<Engine> engine = engineBuilder.setPower(premiumEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
-    std::unique_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
+    std::shared_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(premiumDiameter).setMaterial(premiumMaterial).build();
+    std::shared_ptr<Wheels> wheels = wheelsBuilder.setDiameter(premiumDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarHatchback> builder = {};
@@ -68,24 +68,24 @@ std::unique_ptr<Car> Director::getPremiumHatchback()
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
 
-    std::unique_ptr<Car> result = builder.getCar();
+    std::shared_ptr<Car> result = builder.getCar();
 
     return std::move(result);
 }
 
-std::unique_ptr<Car> Director::getElectricHatchback()
+std::shared_ptr<Car> Director::getElectricHatchback()
 {
     // get engine
     EngineBuilder<ElectricEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(premiumEngineCapacity).build();
+    std::shared_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
-    std::unique_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
+    std::shared_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(premiumMaterial).build();
+    std::shared_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarHatchback> builder = {};
@@ -94,24 +94,24 @@ std::unique_ptr<Car> Director::getElectricHatchback()
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
 
-    std::unique_ptr<Car> result = builder.getCar();
+    std::shared_ptr<Car> result = builder.getCar();
 
     return std::move(result);
 }
 
-std::unique_ptr<Car> Director::getStandardSedan()
+std::shared_ptr<Car> Director::getStandardSedan()
 {
     // get engine
     EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
+    std::shared_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
-    std::unique_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
+    std::shared_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
+    std::shared_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarSedan> builder = {};
@@ -120,24 +120,24 @@ std::unique_ptr<Car> Director::getStandardSedan()
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
 
-    std::unique_ptr<Car> result = builder.getCar();
+    std::shared_ptr<Car> result = builder.getCar();
 
     return std::move(result);
 }
 
-std::unique_ptr<Car> Director::getPremiumSedan()
+std::shared_ptr<Car> Director::getPremiumSedan()
 {
     // get engine
     EngineBuilder<GasolineEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(premiumEnginePower).setCapacity(premiumEngineCapacity).build();
+    std::shared_ptr<Engine> engine = engineBuilder.setPower(premiumEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
-    std::unique_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
+    std::shared_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(premiumDiameter).setMaterial(premiumMaterial).build();
+    std::shared_ptr<Wheels> wheels = wheelsBuilder.setDiameter(premiumDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarSedan> builder = {};
@@ -146,24 +146,24 @@ std::unique_ptr<Car> Director::getPremiumSedan()
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
 
-    std::unique_ptr<Car> result = builder.getCar();
+    std::shared_ptr<Car> result = builder.getCar();
 
     return std::move(result);
 }
 
-std::unique_ptr<Car> Director::getElectricSedan()
+std::shared_ptr<Car> Director::getElectricSedan()
 {
     // get engine
     EngineBuilder<ElectricEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(premiumEngineCapacity).build();
+    std::shared_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
-    std::unique_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
+    std::shared_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(premiumMaterial).build();
+    std::shared_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarSedan> builder = {};
@@ -172,24 +172,24 @@ std::unique_ptr<Car> Director::getElectricSedan()
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
 
-    std::unique_ptr<Car> result = builder.getCar();
+    std::shared_ptr<Car> result = builder.getCar();
 
     return std::move(result);
 }
 
-std::unique_ptr<Car> Director::getStandardSuv()
+std::shared_ptr<Car> Director::getStandardSuv()
 {
     // get engine
     EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
+    std::shared_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(standardEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
-    std::unique_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
+    std::shared_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
+    std::shared_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(standardMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarSuv> builder = {};
@@ -198,24 +198,24 @@ std::unique_ptr<Car> Director::getStandardSuv()
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
 
-    std::unique_ptr<Car> result = builder.getCar();
+    std::shared_ptr<Car> result = builder.getCar();
 
     return std::move(result);
 }
 
-std::unique_ptr<Car> Director::getPremiumSuv()
+std::shared_ptr<Car> Director::getPremiumSuv()
 {
     // get engine
     EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(premiumEnginePower).setCapacity(premiumEngineCapacity).build();
+    std::shared_ptr<Engine> engine = engineBuilder.setPower(premiumEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
-    std::unique_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
+    std::shared_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(premiumDiameter).setMaterial(premiumMaterial).build();
+    std::shared_ptr<Wheels> wheels = wheelsBuilder.setDiameter(premiumDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarSuv> builder = {};
@@ -224,24 +224,24 @@ std::unique_ptr<Car> Director::getPremiumSuv()
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
 
-    std::unique_ptr<Car> result = builder.getCar();
+    std::shared_ptr<Car> result = builder.getCar();
 
     return std::move(result);
 }
 
-std::unique_ptr<Car> Director::getElectricSuv()
+std::shared_ptr<Car> Director::getElectricSuv()
 {
     // get engine
     EngineBuilder<DieselEngine> engineBuilder = {};
-    std::unique_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(premiumEngineCapacity).build();
+    std::shared_ptr<Engine> engine = engineBuilder.setPower(standardEnginePower).setCapacity(premiumEngineCapacity).build();
 
     // get transmission
     TransmissionBuilder<MechanicalTransmission> transmissionBuilder = {};
-    std::unique_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
+    std::shared_ptr<Transmission> transmission = transmissionBuilder.setGears(6).build();
 
     // get Wheels
     WheelsBuilder wheelsBuilder = {};
-    std::unique_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(premiumMaterial).build();
+    std::shared_ptr<Wheels> wheels = wheelsBuilder.setDiameter(standardDiameter).setMaterial(premiumMaterial).build();
 
     // Finally, the car builder
     CarBuilder<CarSuv> builder = {};
@@ -250,7 +250,7 @@ std::unique_ptr<Car> Director::getElectricSuv()
     builder.setTransmission(transmission);
     builder.setWheels(wheels);
 
-    std::unique_ptr<Car> result = builder.getCar();
+    std::shared_ptr<Car> result = builder.getCar();
 
     return std::move(result);
 }

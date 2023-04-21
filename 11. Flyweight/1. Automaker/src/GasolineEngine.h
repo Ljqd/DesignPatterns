@@ -11,7 +11,7 @@ namespace CarModule
 			return "GasolineEngine: P(" + std::to_string(power) + +"), cp(" + std::to_string(capacity) + ");";
 		}
 
-		std::unique_ptr<Engine> clone() override {
+		std::shared_ptr<Engine> clone() override {
 			return std::make_unique<GasolineEngine>(*this);
 		}
 	};

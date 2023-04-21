@@ -24,7 +24,7 @@ namespace CarModule
 
         std::string getSring() const;
 
-        std::unique_ptr<Wheels> clone();
+        std::shared_ptr<Wheels> clone();
 
     private:
         Material material;

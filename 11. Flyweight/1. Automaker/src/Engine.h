@@ -17,7 +17,7 @@ namespace CarModule
 
 		virtual std::string getString() = 0;
 
-		virtual std::unique_ptr<Engine> clone() = 0;
+		virtual std::shared_ptr<Engine> clone() = 0;
 
 	protected:
 		size_t power, capacity;

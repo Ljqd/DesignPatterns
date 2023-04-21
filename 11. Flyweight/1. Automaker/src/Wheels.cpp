@@ -39,7 +39,7 @@ std::string Wheels::getSring() const
     return "Wheels: d(" + std::to_string(diameter) + "), m(" + m + ");";
 }
 
-std::unique_ptr<Wheels> Wheels::clone()
+std::shared_ptr<Wheels> Wheels::clone()
 {
     return std::make_unique<Wheels>(*this);
 }

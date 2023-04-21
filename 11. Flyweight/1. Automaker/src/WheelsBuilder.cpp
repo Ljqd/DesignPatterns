@@ -12,9 +12,9 @@ void WheelsBuilder::reset()
     product = std::make_unique<Wheels>();
 }
 
-std::unique_ptr<Wheels> WheelsBuilder::build()
+std::shared_ptr<Wheels> WheelsBuilder::build()
 {
-    std::unique_ptr<Wheels> result = std::move(product);
+    std::shared_ptr<Wheels> result = std::move(product);
     reset();
     return result;
 }

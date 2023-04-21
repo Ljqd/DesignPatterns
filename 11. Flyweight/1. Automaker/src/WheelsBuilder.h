@@ -12,12 +12,12 @@ namespace CarModule
         WheelsBuilder();
 
         void reset();
-        std::unique_ptr<Wheels> build();
+        std::shared_ptr<Wheels> build();
 
         WheelsBuilder& setMaterial(Wheels::Material material);
         WheelsBuilder& setDiameter(float diameter);
 
     private:
-        std::unique_ptr<Wheels> product;
+        std::shared_ptr<Wheels> product;
     };
 }

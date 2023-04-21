@@ -14,13 +14,13 @@ namespace CarModule
     public:
         TransmissionBuilder();
 
-        std::unique_ptr<Transmission> build();
+        std::shared_ptr<Transmission> build();
         void reset();
 
         TransmissionBuilder& setGears(size_t gears);
 
     protected:
-        std::unique_ptr<Transmission> product;
+        std::shared_ptr<Transmission> product;
     };
 
     template<typename TransmissionType>
@@ -30,9 +30,9 @@ namespace CarModule
     }
 
     template<typename TransmissionType>
-    std::unique_ptr<Transmission> TransmissionBuilder<TransmissionType>::build()
+    std::shared_ptr<Transmission> TransmissionBuilder<TransmissionType>::build()
     {
-        std::unique_ptr<Transmission> result = std::move(product);
+        std::shared_ptr<Transmission> result = std::move(product);
         reset();
         return result;
     }

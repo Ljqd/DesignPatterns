@@ -18,7 +18,7 @@ namespace CarModule
             return carString + componentsString;
         }
 
-        std::unique_ptr<Car> clone() override {
+        std::shared_ptr<Car> clone() override {
             // since we can't copy unique_prt, we have 2 options:
             // - refuse to use unique_prt
             // - clone the object's components explicitly
@@ -27,7 +27,7 @@ namespace CarModule
             auto transmission = this->transmission->clone();
             auto wheels = this->wheels->clone();
 
-            std::unique_ptr<CarSuv> newObject = std::make_unique<CarSuv>();
+            std::shared_ptr<CarSuv> newObject = std::make_unique<CarSuv>();
             newObject->setColor(color);
             newObject->setEngine(engine);
             newObject->setTransmission(transmission);

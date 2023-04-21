@@ -12,13 +12,13 @@ namespace CarModule
     public:
         EngineBuilder();
 
-        std::unique_ptr<Engine> build();
+        std::shared_ptr<Engine> build();
         void reset();
         EngineBuilder& setCapacity(size_t capacity);
         EngineBuilder& setPower(size_t power);
 
     protected:
-        std::unique_ptr<Engine> product;
+        std::shared_ptr<Engine> product;
     };
 
     template<typename EngineType>
@@ -28,9 +28,9 @@ namespace CarModule
     }
 
     template<typename EngineType>
-    std::unique_ptr<Engine> EngineBuilder<EngineType>::build()
+    std::shared_ptr<Engine> EngineBuilder<EngineType>::build()
     {
-        std::unique_ptr<Engine> result = std::move(product);
+        std::shared_ptr<Engine> result = std::move(product);
         reset();
         return result;
     }
