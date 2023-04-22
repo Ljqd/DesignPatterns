@@ -8,10 +8,15 @@ namespace CarModule
     class Transmission
     {
     public:
-        virtual void setGears(size_t gears) = 0;
-        virtual size_t getGears() const = 0;
-
         virtual std::shared_ptr<Transmission> clone() = 0;
+
+        void setGears(size_t gears) {
+            this->gears = gears;
+        }
+
+        size_t getGears() const {
+            return this->gears;
+        }
 
         std::string getString() const {
             return "Transmission: gears = " + std::to_string(gears) + ";";
