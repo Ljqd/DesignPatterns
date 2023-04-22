@@ -42,7 +42,7 @@ namespace CarModule
 				return ptr.lock();
 		}
 		std::shared_ptr<CachedType> result = HelperClass<CachedType, Args...>::getNew(cachedTypeInput);
-		std::weak_ptr<CachedType> weak(result);
+		std::weak_ptr<CachedType> weak = result;
 		cache.emplace_back(weak);
 
 		return result;

@@ -11,6 +11,7 @@ int main()
     std::shared_ptr<CarModule::Car> standardCar1 = director->getStandardHatchback();
     std::shared_ptr<CarModule::Car> standardCar2 = director->getStandardHatchback();
 
+    std::cout << (standardCar1 == standardCar2) << std::endl;
     std::cout << ((*standardCar1) == (*standardCar2)) << std::endl;
 
 }

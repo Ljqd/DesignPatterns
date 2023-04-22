@@ -59,9 +59,9 @@ namespace CarModule
         std::tuple<Color, std::shared_ptr<Engine>, std::shared_ptr<Transmission>, std::shared_ptr<Wheels>> tpl = {
             cachedColor, cachedEngine, cachedTransmission, cachedWheels 
         };
-        std::shared_ptr<CarType> result = std::make_shared<CarType>(*cachedCars.getCachedObject(tpl));
+        std::shared_ptr<CarType> result = cachedCars.getCachedObject(tpl);
         reset();
-        return std::make_shared<CarType>(*result);
+        return result;
     }
 
     template<typename CarType>
