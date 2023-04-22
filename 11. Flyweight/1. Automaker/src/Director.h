@@ -45,6 +45,38 @@ namespace CarModule
 		Director() = default;
 		static Director* director;
 
+		// At first, technically director must obtain Builder* from the outside
+		// Second, disadvantage of templates => schematically:
+		//     ClassA<int> and ClassA<float> is two completely different classes
+		//     so you need explicitly declare each possible Builder
+		//
+		// Since now our builders need to share common "cache" - we need to have
+		// them all as member variables. 
+		// 
+		// I think it's a good idea make Builder-s a Singleton            (<---) 
+		//
+		// Second note:
+		// Car preserves only shared_ptr-s to components (Engine/Transmission)
+		// but engine builder has own cache and this is its resposibility to
+		// provide correct shared_tpr
+		//
+		// This is all about you don't have to worry about does CarA and CarB
+		// really have common shared_ptr<EngineX> or they contain two separate shared_ptr
+		// and our Flyweight doesn't work
+
+		CarBuilder<CarHatchback> hatchbackBuilder;
+		CarBuilder<CarSedan> sedanBuilder;
+		CarBuilder<CarSuv> suvBuilder;
+
+		EngineBuilder<DieselEngine> dieselEngineBuilder;
+		EngineBuilder<ElectricEngine> electricEngineBuilder;
+		EngineBuilder<GasolineEngine> gasolineEngineBuilder;
+
+		TransmissionBuilder<MechanicalTransmission> mechanicalTransmissionBuilder;
+		TransmissionBuilder<HydraulicTransmission> hydraulicTransmissionBuilder;
+
+		WheelsBuilder wheelsBuilder;
+
 		// temporary variables, just for demonstration
 		static const size_t standardEnginePower, standardEngineCapacity;
 		static const size_t premiumEnginePower, premiumEngineCapacity;
