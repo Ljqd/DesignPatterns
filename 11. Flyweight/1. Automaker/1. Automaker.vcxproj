@@ -149,8 +149,9 @@
     <ClInclude Include="src\ElectricEngine.h" />
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\EngineBuilder.h" />
-    <ClInclude Include="src\FlyweightCarBuilder.h" />
+    <ClInclude Include="src\FlyweightContainer.h" />
     <ClInclude Include="src\GasolineEngine.h" />
+    <ClInclude Include="src\HelperClass.h" />
     <ClInclude Include="src\HydraulicTransmission.h" />
     <ClInclude Include="src\MechanicalTransmission.h" />
     <ClInclude Include="src\Transmission.h" />

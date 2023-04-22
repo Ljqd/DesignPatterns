@@ -98,7 +98,10 @@
     <ClInclude Include="src\WheelsBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\FlyweightCarBuilder.h">
+    <ClInclude Include="src\FlyweightContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\HelperClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
