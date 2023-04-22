@@ -5,6 +5,7 @@ using namespace CarModule;
 WheelsBuilder::WheelsBuilder()
 {
     reset();
+    cachedWheels = {};
 }
 
 void WheelsBuilder::reset()
@@ -16,7 +17,7 @@ void WheelsBuilder::reset()
 std::shared_ptr<Wheels> WheelsBuilder::build()
 {
     std::tuple<Wheels::Material, float> tpl = { cachedMaterial, cachedDiameter };
-    std::shared_ptr<Wheels> result = cachedWheels.getCachedObject(tpl);
+    std::shared_ptr<Wheels> result = std::make_shared<Wheels>(*cachedWheels.getCachedObject(tpl));
     reset();
     return result;
 }

@@ -22,7 +22,7 @@ namespace CarModule
     protected:
         size_t cachedGears;
 
-        FlyweightContainer<Transmission> cachedTransmission;
+        FlyweightContainer<TransmissionType> cachedTransmission;
     };
 
     // =========================================================================
@@ -31,15 +31,16 @@ namespace CarModule
     TransmissionBuilder<TransmissionType>::TransmissionBuilder()
     {
         reset();
+        cachedTransmission = {};
     }
 
     template<typename TransmissionType>
     std::shared_ptr<Transmission> TransmissionBuilder<TransmissionType>::build()
     {
         std::tuple<size_t> tpl = { cachedGears };
-        std::shared_ptr<Transmission> result = std::make_shared<TransmissionType>(cachedTransmission.getCachedObject(tpl));
+        std::shared_ptr<TransmissionType> result = std::make_shared<TransmissionType>(*cachedTransmission.getCachedObject(tpl));
         reset();
-        return result;
+        return std::make_shared<TransmissionType>(*result);
     }
 
     template<typename TransmissionType>

@@ -30,15 +30,16 @@ namespace CarModule
     EngineBuilder<EngineType>::EngineBuilder()
     {
         reset();
+        cachedEngines = {};
     }
 
     template<typename EngineType>
     std::shared_ptr<Engine> EngineBuilder<EngineType>::build()
     {
         std::tuple<size_t, size_t> tpl = { cachedCapacity, cachedPower };
-        std::shared_ptr<Engine> result = std::make_shared<EngineType>(cachedEngines.getCachedObject(tpl));
+        std::shared_ptr<EngineType> result = std::make_shared<EngineType>(*cachedEngines.getCachedObject(tpl));
         reset();
-        return result;
+        return std::make_shared<EngineType>(*result);
     }
 
     template<typename EngineType>

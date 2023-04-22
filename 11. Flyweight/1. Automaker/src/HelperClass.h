@@ -29,15 +29,11 @@ namespace CarModule
 		)
 		{
 			// cachedColor, cachedEngine, cachedTransmission, cachedWheels
-			Color color = std::get<0>(cachedTypeInput);
-			std::shared_ptr<Engine> engine = std::get<1>(cachedTypeInput);
-			std::shared_ptr<Transmission> transmission = std::get<2>(cachedTypeInput);
-			std::shared_ptr<Wheels> wheels = std::get<3>(cachedTypeInput);
 
-			bool s0 = ptr.lock()->getColor() == color;
-			bool s1 = ptr.lock()->getEngine() == *engine;
-			bool s2 = ptr.lock()->getTransmission() == *transmission;
-			bool s3 = ptr.lock()->getWheels() == *wheels;
+			bool s0 = ptr.lock()->getColor() == std::get<0>(cachedTypeInput);
+			bool s1 = ptr.lock()->getEngine() == *std::get<1>(cachedTypeInput);
+			bool s2 = ptr.lock()->getTransmission() == *std::get<2>(cachedTypeInput);
+			bool s3 = ptr.lock()->getWheels() == *std::get<3>(cachedTypeInput);
 			return s0 && s1 && s2 && s3;
 		}
 
@@ -45,19 +41,14 @@ namespace CarModule
 			const std::tuple<Color, std::shared_ptr<Engine>, std::shared_ptr<Transmission>, std::shared_ptr<Wheels>>& cachedTypeInput
 		)
 		{
-			Color color = std::get<0>(cachedTypeInput);
-			std::shared_ptr<Engine> engine = std::get<1>(cachedTypeInput);
-			std::shared_ptr<Transmission> transmission = std::get<2>(cachedTypeInput);
-			std::shared_ptr<Wheels> wheels = std::get<3>(cachedTypeInput);
-
 			std::shared_ptr<CarType> result = std::make_shared<CarType>();
 
-			result->setColor(color);
-			result->setEngine(engine);
-			result->setTransmission(transmission);
-			result->setWheels(wheels);
+			result->setColor(std::get<0>(cachedTypeInput));
+			result->setEngine(std::get<1>(cachedTypeInput));
+			result->setTransmission(std::get<2>(cachedTypeInput));
+			result->setWheels(std::get<3>(cachedTypeInput));
 
-			return result;
+			return std::make_shared<CarType>(*result);
 		}
 	};
 
@@ -86,7 +77,7 @@ namespace CarModule
 			result->setPower(power);
 			result->setCapacity(capacity);
 
-			return result;
+			return std::make_shared<EngineType>(*result);
 		}
 	};
 
@@ -109,7 +100,7 @@ namespace CarModule
 			std::shared_ptr<TransmissionType> result = std::make_shared<TransmissionType>();
 			result->setGears(gears);
 
-			return result;
+			return std::make_shared<TransmissionType>(*result);
 		}
 	};
 
