@@ -8,19 +8,19 @@ void Car::setColor(Color color)
     this->color = color;
 }
 
-void Car::setEngine(std::shared_ptr<Engine>& engine)
+void Car::setEngine(std::shared_ptr<Engine> engine)
 {
-    this->engine = engine;
+    this->engine = std::move(engine);
 }
 
-void Car::setTransmission(std::shared_ptr<Transmission>& transmission)
+void Car::setTransmission(std::shared_ptr<Transmission> transmission)
 {
-    this->transmission = transmission;
+    this->transmission = std::move(transmission);
 }
 
-void Car::setWheels(std::shared_ptr<Wheels>& wheels)
+void Car::setWheels(std::shared_ptr<Wheels> wheels)
 {
-    this->wheels = wheels;
+    this->wheels = std::move(wheels);
 }
 
 Color Car::getColor() const
@@ -70,4 +70,13 @@ std::string Car::getComponentsString() const
         result += '\t' + component + '\n';
 
     return result;
+}
+
+bool Car::operator==(const Car& other)
+{
+    bool s1 = this->color == other.color;
+    bool s2 = *this->engine == *other.engine;
+    bool s3 = *this->transmission == *other.transmission;
+    bool s4 = *this->wheels == *other.wheels;
+    return s1 && s2 && s3 && s4;
 }

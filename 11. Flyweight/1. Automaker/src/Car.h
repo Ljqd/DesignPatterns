@@ -15,9 +15,9 @@ namespace CarModule
 	{
 	public:
 		void setColor(Color color);
-		void setEngine(std::shared_ptr<Engine>& engine);
-		void setTransmission(std::shared_ptr<Transmission>& transmission);
-		void setWheels(std::shared_ptr<Wheels>& wheels);
+		void setEngine(std::shared_ptr<Engine> engine);
+		void setTransmission(std::shared_ptr<Transmission> transmission);
+		void setWheels(std::shared_ptr<Wheels> wheels);
 
 		Color getColor() const;
 		Engine& getEngine();
@@ -27,6 +27,8 @@ namespace CarModule
 		virtual std::string getString() const = 0;
 		
 		virtual std::shared_ptr<Car> clone() = 0;
+
+		bool operator==(const Car& other);
 
 	protected:
 		virtual std::string getCarName() const = 0;
