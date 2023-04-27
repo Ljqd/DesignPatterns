@@ -5,12 +5,7 @@
 class LoginHandler : public AbstractHandler
 {
 public:
-    LoginHandler(Database* database)
-        : AbstractHandler(database) {};
+    LoginHandler(Database* database);
 
-    bool handle(const Request& request) override {
-        if (this->database->hasLogin(request.login))
-            return this->nextHandler->handle(request);
-        return false;
-    }
+    bool handle(const Request& request) override;
 };
